@@ -1,9 +1,9 @@
 # panna787
 
-Links for day3 repos:
-
-https://github.com/panna787/git-lesson-repository
+[git-lesson-repository](https://github.com/panna787/git-lesson-repository)
 <br>
-https://github.com/panna787/patchwork
+[patchwork](https://github.com/panna787/patchwork)
 <br>
-https://github.com/panna787/hello-world
+[hello-world](https://github.com/panna787/hello-world)
+<br>
+[teaser-syllabus](https://github.com/green-fox-academy/teaser-syllabus)
