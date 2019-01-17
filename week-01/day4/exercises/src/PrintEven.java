@@ -1,7 +1,7 @@
 public class PrintEven {
     public static void main(String[] args) {
-        for (int j = 0;j <= 500;j += 2) {
-            System.out.println(j);
+        for (int i = 0;i <= 500;i += 2) {
+            System.out.println(i);
         }
     }
 }
