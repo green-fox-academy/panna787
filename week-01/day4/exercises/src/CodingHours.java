@@ -6,9 +6,9 @@ public class CodingHours {
         // Print how many hours is spent with coding in a semester by an attendee,
         // if the attendee only codes on workdays.
         //
-        System.out.println(17 * 5 * 6);
+        System.out.println("Hours spent with coding: " + 17 * 5 * 6);
         // Print the percentage of the coding hours in the semester if the average
         // work hours weekly is 52
-        System.out.println();
+        System.out.println("Percentage of coding hours: " + (52 * 17.) / (168 * 17) * 100 + " %");
     }
 }
