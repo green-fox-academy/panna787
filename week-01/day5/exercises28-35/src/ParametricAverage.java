@@ -14,7 +14,9 @@ public class ParametricAverage {
             sumNumbers += scanner.nextInt();
         }
 
-        System.out.println("Sum: " + sumNumbers + ", Average: " + (sumNumbers/numberOfNumbers));
+        double averageNum = sumNumbers / numberOfNumbers;
+
+        System.out.println("Sum: " + sumNumbers + ", Average: " + averageNum);
 
     }
 
