@@ -1,5 +1,10 @@
 public class Doubllng {
 
+    public static void main(String[] args) {
+
+        System.out.println(doubling(baseNum));
+    }
+
     public static int baseNum = 123;
 
     static int doubling(int num) {
@@ -8,8 +13,5 @@ public class Doubllng {
         return doubleNum;
     }
 
-    public static void main(String[] args) {
 
-        System.out.println(doubling(baseNum));
-    }
 }

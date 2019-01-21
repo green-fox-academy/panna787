@@ -1,5 +1,11 @@
 public class AppendAFunc {
 
+    public static void main(String[] args) {
+
+        System.out.println(appendAFunc(typo));
+
+    }
+
     public static String typo = "Chinchill";
 
     public static String appendAFunc(String word) {
@@ -9,9 +15,5 @@ public class AppendAFunc {
         return fixedWord;
     }
 
-    public static void main(String[] args) {
 
-        System.out.println(appendAFunc(typo));
-
-    }
 }
