@@ -8,7 +8,17 @@ public class Reverse {
 
 
 
-        //System.out.println(reverse(reversed));
+        System.out.println(reverse(reversed));
+    }
+
+    public static String reverse(String words) {
+        String reversedWords = "";
+
+        for (int i = words.length() - 1; i >= 0; i--) {
+            reversedWords += words.charAt(i);
+        }
+
+        return reversedWords;
     }
 
 
