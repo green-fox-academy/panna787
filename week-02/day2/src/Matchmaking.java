@@ -15,28 +15,17 @@ public class Matchmaking {
     public static ArrayList<String> makingMatches(ArrayList<String> list1, ArrayList<String> list2) {
         ArrayList<String> fullList = new ArrayList<>();
 
-        if (list1.size() > list2.size()) {
-            for (int i = 0; i < list1.size(); i++) {
-                if (i < list2.size()) {
-                    fullList.add(list1.get(i));
-                    fullList.add(list2.get(i));
-                } else {
-                    fullList.add(list1.get(i));
-                }
-            }
-        } else {
-            for (int i = 0; i < list2.size(); i++) {
-                if (i < list1.size()) {
-                    fullList.add(list1.get(i));
-                    fullList.add(list2.get(i));
-                } else {
-                    fullList.add(list2.get(i));
-                }
+        for (int i = 0; i < list1.size() + list2.size(); i++) {
 
+            if (i < list1.size()) {
+
+                fullList.add(list1.get(i));
+
+            }
+            if (i < list2.size()) {
+                fullList.add(list2.get(i));
             }
         }
-
-
             return fullList;
 
     }
