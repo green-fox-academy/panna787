@@ -4,20 +4,25 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class FourRectangles {
+public class PositionSquare {
 
     public static void mainDraw(Graphics graphics){
-        // draw four different size and color rectangles.
+        // create a square drawing function that takes 3 parameters:
+        // the x and y coordinates of the square's top left corner and the graphics
+        // and draws a 50x50 square from that point.
+        // draw 3 squares with that function.
         // avoid code duplication.
 
-
-        for (int i = 0; i < 4; i++) {
-
-            graphics.setColor(new Color((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255)));
-            graphics.fillRect(i * 80,i * 50, (int)(Math.random()*300), (int)(Math.random()*300));
+        for (int i = 0; i < 3; i++) {
+            drawSquares((int)(Math.random()*100), (int)(Math.random()*100), graphics);
         }
 
 
+
+    }
+
+    public static void drawSquares(int x, int y, Graphics graphics) {
+        graphics.drawRect(x, y, 50, 50);
     }
 
     // Don't touch the code below
@@ -42,4 +47,5 @@ public class FourRectangles {
             mainDraw(graphics);
         }
     }
+
 }
