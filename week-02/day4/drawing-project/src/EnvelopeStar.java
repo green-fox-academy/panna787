@@ -10,20 +10,20 @@ public class EnvelopeStar {
         int step = 10;
         int b = WIDTH/2;
         int nrOfLines = b/step;
+        int a;
 
 
         graphics.setColor(Color.GREEN);
 
         for (int i = 0; i < nrOfLines; i++) {
-            int a = i * step;
+            a = i * step;
             graphics.drawLine(b-a, b, b, a);  //1
             graphics.drawLine(b+a, b, b, a);  //2
-        }
-        for (int i = 0; i < nrOfLines; i++) {
-            int a = i * step;
             graphics.drawLine(b, 2*b-a, b-a, b);  //3
             graphics.drawLine(b, 2*b-a, a+b, b );  //4
         }
+
+
 
 
 

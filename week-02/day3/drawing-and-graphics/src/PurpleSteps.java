@@ -12,7 +12,7 @@ public class PurpleSteps {
         int size = 10;
         graphics.setColor(new Color(178,0, 255));
         for (int i = 10; i <= 200; i+=size) {
-            graphics.fillRect(i, i, size, size);
+            graphics.fillRect(i, i, size, size );
         }
 
 
