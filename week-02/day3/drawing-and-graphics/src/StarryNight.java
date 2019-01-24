@@ -15,8 +15,9 @@ public class StarryNight {
         graphics.setColor(Color.BLACK);
         graphics.fillRect(0, 0, WIDTH, HEIGHT);
 
+        int color;
         for (int i = 0; i < 100; i++) {
-            int color = (int)(Math.random()*255);
+            color = (int)(Math.random()*255);
             graphics.setColor(new Color(color, color, color));
             graphics.fillRect((int)(Math.random()*320), (int)(Math.random()*320), 2, 2);
 
