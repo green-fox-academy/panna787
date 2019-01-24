@@ -7,27 +7,26 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class Triangles {
     public static void mainDraw(Graphics graphics) {
 
-        int step = 15;
-        int width = WIDTH;
-        int height = 280;
+        int triangleWidth = 20;
+        int rowHeight = 18;
 
-        drawParallelLines(width, height, step, graphics);
 
 
 
     }
+
 
     /*public static void drawTriangles(int x, int y, int size, Graphics graphics) {
         graphics.drawLine(x, y, x+size, y);
 
     }*/
 
-    public static void drawParallelLines(int width, int height, int step, Graphics graphics) {
+    /*public static void drawParallelLines(int width, int height, int step, Graphics graphics) {
         for (int i = 0; i < height; i+=step) {
             graphics.drawLine(i/2, height-i, width-i/2, height-i);
         }
 
-    }
+    }*/
 
     // Don't touch the code below
     static int WIDTH = 320;

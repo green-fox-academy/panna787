@@ -12,18 +12,11 @@ public class FunctionToCenter {
         // Fill the canvas with lines from the edges, every 20 px, to the center.
 
         for (int i = 0; i <= WIDTH; i+=20) {
-            int x1 = i;
-            int y1 = 0;
-            lineDraw(x1, y1, graphics);
-            int x2 = 0;
-            int y2 = i;
-            lineDraw(x2, y2, graphics);
-            int x3 = WIDTH;
-            int y3 = i;
-            lineDraw(x3, y3, graphics);
-            int x4 = i;
-            int y4 = WIDTH;
-            lineDraw(x4, y4, graphics);
+
+            lineDraw(i, 0, graphics);
+            lineDraw(0, i, graphics);
+            lineDraw(WIDTH, i, graphics);
+            lineDraw(i, WIDTH, graphics);
         }
 
 

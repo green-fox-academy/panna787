@@ -27,10 +27,8 @@ public class DrawDiamond {
                 for (int j = (lines - i) * 2 - 1; j > 0; j--) {
                     System.out.print("*");
                 }
-
                 System.out.println();
             }
-
         } else {
             for (int i = midLine; i < lines; i++) {
                 for (int j = 1; j < i - midLine + 1; j++) {
@@ -39,7 +37,6 @@ public class DrawDiamond {
                 for (int j = (lines - i) * 2 - 1; j > 0; j--) {
                     System.out.print("*");
                 }
-
                 System.out.println();
             }
         }
