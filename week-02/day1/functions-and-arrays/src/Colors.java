@@ -10,6 +10,8 @@ public class Colors {
         colors[1] = new String[] {"orange red", "red", "tomato"};
         colors[2] = new String[] {"orchid", "violet", "pink", "hot pink"};
 
+        System.out.println(Arrays.toString(colors[1]));
+
 
     }
 }
