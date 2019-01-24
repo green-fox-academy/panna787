@@ -4,17 +4,28 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class PurpleSteps {
+public class Triangles {
     public static void mainDraw(Graphics graphics) {
-        // Reproduce this:
-        // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/purple-steps/r3.png]
 
-        int size = 10;
-        graphics.setColor(new Color(178,0, 255));
-        for (int i = 10; i <= 200; i+=size) {
-            graphics.fillRect(i, i, size, size);
+        int step = 15;
+        int width = WIDTH;
+        int height = 280;
+
+        drawParallelLines(width, height, step, graphics);
+
+
+
+    }
+
+    /*public static void drawTriangles(int x, int y, int size, Graphics graphics) {
+        graphics.drawLine(x, y, x+size, y);
+
+    }*/
+
+    public static void drawParallelLines(int width, int height, int step, Graphics graphics) {
+        for (int i = 0; i < height; i+=step) {
+            graphics.drawLine(i/2, height-i, width-i/2, height-i);
         }
-
 
     }
 
