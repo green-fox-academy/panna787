@@ -8,18 +8,34 @@ public class Triangles {
     public static void mainDraw(Graphics graphics) {
 
         int triangleWidth = 20;
-        int rowHeight = 18;
+        int triangleHeight = 18;
+        int countBaseLineTriangles = 5;
+
+        drawTriangles(triangleWidth, triangleHeight, countBaseLineTriangles, graphics);
+    }
+
+    public static void drawTriangles(int width, int height, int countBaseLineTriangles, Graphics graphics) {
+        int x = 0;
+        int y = HEIGHT;
+
+        for (int i = 0; i < countBaseLineTriangles; i++) {
+            x = 0;
+            x += i * width/2;
+            for (int j = 0; j < countBaseLineTriangles-i; j++) {
+
+                graphics.drawLine(x, y, x+width, y);
+                graphics.drawLine(x+width, y, x+width/2, y-height);
+                graphics.drawLine(x+width/2, y-height, x, y);
+
+                x += width;
+            }
+            y -= height;
 
 
+        }
 
 
     }
-
-
-    /*public static void drawTriangles(int x, int y, int size, Graphics graphics) {
-        graphics.drawLine(x, y, x+size, y);
-
-    }*/
 
     /*public static void drawParallelLines(int width, int height, int step, Graphics graphics) {
         for (int i = 0; i < height; i+=step) {
