@@ -14,22 +14,22 @@ public class Triangles {
         drawTriangles(triangleWidth, triangleHeight, countBaseLineTriangles, graphics);
     }
 
-    public static void drawTriangles(int width, int height, int countBaseLineTriangles, Graphics graphics) {
+    public static void drawTriangles(int triangleWidth, int triangleHeight, int countBaseLineTriangles, Graphics graphics) {
         int x = 0;
         int y = HEIGHT;
 
         for (int i = 0; i < countBaseLineTriangles; i++) {
             x = 0;
-            x += i * width/2;
+            x += i * triangleWidth/2;
             for (int j = 0; j < countBaseLineTriangles-i; j++) {
 
-                graphics.drawLine(x, y, x+width, y);
-                graphics.drawLine(x+width, y, x+width/2, y-height);
-                graphics.drawLine(x+width/2, y-height, x, y);
+                graphics.drawLine(x, y, x+triangleWidth, y);
+                graphics.drawLine(x+triangleWidth, y, x+triangleWidth/2, y-triangleHeight);
+                graphics.drawLine(x+triangleWidth/2, y-triangleHeight, x, y);
 
-                x += width;
+                x += triangleWidth;
             }
-            y -= height;
+            y -= triangleHeight;
 
 
         }
