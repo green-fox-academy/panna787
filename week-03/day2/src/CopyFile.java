@@ -6,6 +6,8 @@ import java.util.ArrayList;
 public class CopyFile {
     public static void main(String[] args) {
 
+        copyFile("test.txt", "test2.txt");
+
     }
 
     public static Boolean copyFile(String fileNameCopyFrom, String fileNameCopyTo) {

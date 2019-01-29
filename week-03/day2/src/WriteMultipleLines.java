@@ -28,7 +28,7 @@ public class WriteMultipleLines {
 
             Files.write(filePath, linesToWrite);
         } catch (Exception ex) {
-            
+
         }
 
 
