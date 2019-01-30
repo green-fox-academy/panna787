@@ -23,6 +23,7 @@ public class HorizontalLines {
     }
 
     public static void drawLines(int x, int y, Graphics graphics) {
+
         graphics.drawLine(x, y, x+50, y);
     }
 

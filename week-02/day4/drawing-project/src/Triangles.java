@@ -9,7 +9,7 @@ public class Triangles {
 
         int triangleWidth = 20;
         int triangleHeight = 18;
-        int countBaseLineTriangles = 5;
+        int countBaseLineTriangles = 10;
 
         drawTriangles(triangleWidth, triangleHeight, countBaseLineTriangles, graphics);
     }

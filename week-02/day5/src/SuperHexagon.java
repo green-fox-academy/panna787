@@ -4,26 +4,17 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class PositionSquare {
-
-    public static void mainDraw(Graphics graphics){
-        // create a square drawing function that takes 3 parameters:
-        // the x and y coordinates of the square's top left corner and the graphics
-        // and draws a 50x50 square from that point.
-        // draw 3 squares with that function.
-        // avoid code duplication.
-
-        for (int i = 0; i < 3; i++) {
-            drawSquares((int)(Math.random()*100), (int)(Math.random()*100), graphics);
-        }
+public class SuperHexagon {
+    public static void mainDraw(Graphics graphics) {
 
 
 
     }
 
-    public static void drawSquares(int x, int y, Graphics graphics) {
+    public static void drawSuperHexagons (int BaseHexagonLineSize, Graphics graphics) {
 
-        graphics.drawRect(x, y, 50, 50);
+
+
     }
 
     // Don't touch the code below
@@ -48,5 +39,4 @@ public class PositionSquare {
             mainDraw(graphics);
         }
     }
-
 }
