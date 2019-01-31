@@ -12,7 +12,6 @@ public class SumDigits {
         int sum = 0;
         if(n > 0) {
             sum = n % 10 + sumDigits(n / 10);
-            return sum;
         }
         return sum;
     }
