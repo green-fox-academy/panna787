@@ -13,8 +13,7 @@ public class String1 {
 
         if (chars.length() > 0) {
             if(chars.endsWith("x")) {
-                chars = chars.substring(0, chars.length()-1);
-                stringToReturn = xToY(chars) + "y";
+                stringToReturn = xToY(chars.substring(0, chars.length()-1)) + "y";
             } else {
                 stringToReturn = xToY(chars.substring(0, chars.length()-1)) + chars.substring(chars.length()-1);
             }
