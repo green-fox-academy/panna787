@@ -4,7 +4,6 @@ public class String2 {
 
     public static void main(String[] args) {
         String chars = "séxddihxé";
-        String chars2 = "oghoiénbédo";
 
         System.out.println(removeXs(chars));
     }
