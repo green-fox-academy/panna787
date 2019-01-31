@@ -9,9 +9,10 @@ public class Bunny1 {
     }
 
     public static int countBunnyEars(int numberOfBunnies) {
+        int earsOfOneBunny = 2;
         int numberOfEars = 0;
         if (numberOfBunnies > 0) {
-            numberOfEars = 2 + countBunnyEars(numberOfBunnies-1);
+            numberOfEars = earsOfOneBunny + countBunnyEars(numberOfBunnies-1);
         }
 
         return numberOfEars;

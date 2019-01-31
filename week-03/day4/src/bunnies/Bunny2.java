@@ -14,12 +14,14 @@ public class Bunny2 {
     }
 
     public static int countEarsOfBunnies(int numberOfBunnies) {
+        int earsOfOddBunnies = 2;
+        int earsOfEvenBunnies = 3;
         int numberOfEars = 0;
         if (numberOfBunnies > 0) {
             if (numberOfBunnies % 2 == 1){
-                numberOfEars = 2 + countEarsOfBunnies(numberOfBunnies-1);
+                numberOfEars = earsOfOddBunnies + countEarsOfBunnies(numberOfBunnies-1);
             } else {
-                numberOfEars = 3 + countEarsOfBunnies(numberOfBunnies-1);
+                numberOfEars = earsOfEvenBunnies + countEarsOfBunnies(numberOfBunnies-1);
             }
 
         }
