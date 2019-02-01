@@ -14,25 +14,23 @@ public class Triangles {
 
         int x = 0;
         int y = 0;
+        int repeats = 4;
 
-        drawTriangle(x, y, WIDTH/2, graphics);
-
+        drawTriangle(x, y, WIDTH/2, repeats, graphics);
     }
 
-    public static void drawTriangle(int baseX, int baseY, int size, Graphics graphics){
+    public static void drawTriangle(int baseX, int baseY, int size, int repeat, Graphics graphics){
         graphics.drawLine(baseX+size/2, baseY+size, baseX+size+size/2, baseY+size);
         graphics.drawLine(baseX+size+size/2, baseY+size, baseX+size, baseY);
         graphics.drawLine(baseX+size, baseY, baseX+size/2, baseY+size);
 
 
-        if (size > size/8) {
-            drawTriangle(baseX, baseY, size / 2, graphics);
-            drawTriangle(baseX + size, baseY, size / 2, graphics);
-            drawTriangle(baseX+size/2, baseY+size, size / 2, graphics);
+        if (repeat > 0) {
+            drawTriangle(baseX, baseY, size / 2, repeat -1, graphics);
+            drawTriangle(baseX + size, baseY, size / 2, repeat -1, graphics);
+            drawTriangle(baseX+size/2, baseY+size, size / 2, repeat -1, graphics);
 
         }
-
-
 
     }
 
