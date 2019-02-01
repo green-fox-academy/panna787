@@ -17,9 +17,6 @@ public class Triangles {
 
         drawTriangle(x, y, WIDTH/2, graphics);
 
-
-
-
     }
 
     public static void drawTriangle(int baseX, int baseY, int size, Graphics graphics){
@@ -27,9 +24,11 @@ public class Triangles {
         graphics.drawLine(baseX+size+size/2, baseY+size, baseX+size, baseY);
         graphics.drawLine(baseX+size, baseY, baseX+size/2, baseY+size);
 
-        if (size > size/8) {
-            drawTriangle(baseX, baseY, size/2, graphics);
 
+        if (size > size/8) {
+            drawTriangle(baseX, baseY, size / 2, graphics);
+            drawTriangle(baseX + size, baseY, size / 2, graphics);
+            drawTriangle(baseX+size/2, baseY+size, size / 2, graphics);
 
         }
 
