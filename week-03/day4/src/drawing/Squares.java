@@ -17,7 +17,7 @@ public class Squares {
         int x = 0;
         int y = 0;
         int size = WIDTH;
-        int steps = 4;
+        int steps = 5;
 
         drawSquares(x, y, size, steps, graphics);
 
@@ -26,23 +26,17 @@ public class Squares {
     public static void drawSquares(int baseX, int baseY, int size, int steps, Graphics graphics){
         int squareSize = size/3;
 
-        /*graphics.drawLine(baseX+squareSize, baseY, baseX+squareSize, size);
-        graphics.drawLine(baseX+squareSize*2, baseY, baseX+squareSize*2, size);
-        graphics.drawLine(baseX, baseY+squareSize, size, baseY+squareSize);
-        graphics.drawLine(baseX, baseY+squareSize*2, size, baseY+squareSize*2);
-*/
+        graphics.drawLine(baseX+squareSize, baseY, baseX+squareSize, baseY+size);
+        graphics.drawLine(baseX+squareSize*2, baseY, baseX+squareSize*2, baseY+size);
+        graphics.drawLine(baseX, baseY+squareSize, baseX+size, baseY+squareSize);
+        graphics.drawLine(baseX, baseY+squareSize*2, baseX+size, baseY+squareSize*2);
 
-        graphics.drawLine(size-squareSize*2, baseY, size-squareSize*2, size);
-        graphics.drawLine(size-squareSize, baseY, size-squareSize, size);
-        graphics.drawLine(baseX, size-squareSize*2, size, size-squareSize*2);
-        graphics.drawLine(baseX, size-squareSize, size, size-squareSize);
         if(steps > 0){
-            drawSquares(baseX, baseY, size/3, steps - 1, graphics);
+            drawSquares(baseX+squareSize, baseY, size/3, steps - 1, graphics);
+            drawSquares(baseX, baseY+squareSize, size/3, steps - 1, graphics);
+            drawSquares(baseX+squareSize*2, baseY+squareSize, size/3, steps - 1, graphics);
+            drawSquares(baseX+squareSize, baseY+squareSize*2, size/3, steps - 1, graphics);
         }
-
-
-
-
 
     }
 

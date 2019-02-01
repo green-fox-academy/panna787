@@ -12,13 +12,16 @@ public class FleetOfThings {
         Thing standUp = new Thing("Stand up");
         Thing eatLunch = new Thing("Eat lunch");
 
-        standUp.complete();
-        eatLunch.complete();
+        //standUp.complete();
+        //eatLunch.complete();
 
         fleet.add(getMilk);
         fleet.add(removeObstacle);
         fleet.add(standUp);
         fleet.add(eatLunch);
+
+        standUp.complete();
+        eatLunch.complete();
 
         // Create a fleet of things to have this output:
         // 1. [ ] Get milk
