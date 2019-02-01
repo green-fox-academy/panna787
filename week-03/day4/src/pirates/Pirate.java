@@ -2,13 +2,11 @@ package pirates;
 
 public class Pirate {
     String name;
-    boolean hasParrot;
     int drunkenness;
     boolean isDead;
 
     public Pirate(String name) {
         this.name = name;
-        this.hasParrot = false;
         this.drunkenness = 0;
         this.isDead = false;
     }
@@ -31,8 +29,15 @@ public class Pirate {
             drunkenness = 0;
         }
     }
-
     public void die(){
         isDead = true;
+    }
+
+    public void brawl(Pirate pirate){
+        if(isDead || pirate.isDead){
+            System.out.println("He's dead");
+        } else {
+
+        }
     }
 }

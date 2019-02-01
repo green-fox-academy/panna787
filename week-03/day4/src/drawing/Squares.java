@@ -10,23 +10,40 @@ public class Squares {
 
     public static void mainDraw(Graphics graphics){
 
-        int n = 3;
-        drawSquares(n, graphics);
-    }
-
-    public static void drawSquares(int numberOfSquaresInARow, Graphics graphics){
         graphics.setColor(Color.YELLOW);
         graphics.fillRect(0,0, WIDTH, HEIGHT);
         graphics.setColor(Color.BLACK);
 
-        int size = WIDTH/numberOfSquaresInARow;
-        for (int i = 0; i < numberOfSquaresInARow; i++) {
-            for (int j = 0; j < numberOfSquaresInARow; j++) {
-                graphics.drawRect(j*size, i*size, size, size);
+        int x = 0;
+        int y = 0;
+        int size = WIDTH;
+        int steps = 4;
 
-            }
+        drawSquares(x, y, size, steps, graphics);
 
+    }
+
+    public static void drawSquares(int baseX, int baseY, int size, int steps, Graphics graphics){
+        int squareSize = size/3;
+
+        /*graphics.drawLine(baseX+squareSize, baseY, baseX+squareSize, size);
+        graphics.drawLine(baseX+squareSize*2, baseY, baseX+squareSize*2, size);
+        graphics.drawLine(baseX, baseY+squareSize, size, baseY+squareSize);
+        graphics.drawLine(baseX, baseY+squareSize*2, size, baseY+squareSize*2);
+*/
+
+        graphics.drawLine(size-squareSize*2, baseY, size-squareSize*2, size);
+        graphics.drawLine(size-squareSize, baseY, size-squareSize, size);
+        graphics.drawLine(baseX, size-squareSize*2, size, size-squareSize*2);
+        graphics.drawLine(baseX, size-squareSize, size, size-squareSize);
+        if(steps > 0){
+            drawSquares(baseX, baseY, size/3, steps - 1, graphics);
         }
+
+
+
+
+
     }
 
     // Don't touch the code below
