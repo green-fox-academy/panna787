@@ -1,7 +1,7 @@
-public class Student {
-    String name;
+public class Student extends Person{
+    /*String name;
     int age;
-    String gender;
+    String gender;*/
     String previousOrganization;
     int skippedDays;
 

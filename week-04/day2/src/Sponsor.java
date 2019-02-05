@@ -1,8 +1,8 @@
-public class Sponsor {
+public class Sponsor extends Person{
 
-    String name;
+    /*String name;
     int age;
-    String gender;
+    String gender;*/
     String company;
     int hiredStudents;
 

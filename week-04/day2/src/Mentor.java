@@ -1,8 +1,8 @@
-public class Mentor {
+public class Mentor extends Person{
 
-    String name;
+    /*String name;
     int age;
-    String gender;
+    String gender;*/
     String level;
 
     public Mentor(){
