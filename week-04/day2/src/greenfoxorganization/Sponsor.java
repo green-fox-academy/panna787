@@ -1,4 +1,8 @@
-public class Sponsor extends Person{
+package greenfoxorganization;
+
+import greenfoxorganization.Person;
+
+public class Sponsor extends Person {
 
     /*String name;
     int age;

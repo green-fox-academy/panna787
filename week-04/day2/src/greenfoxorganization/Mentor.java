@@ -1,4 +1,8 @@
-public class Mentor extends Person{
+package greenfoxorganization;
+
+import greenfoxorganization.Person;
+
+public class Mentor extends Person {
 
     /*String name;
     int age;

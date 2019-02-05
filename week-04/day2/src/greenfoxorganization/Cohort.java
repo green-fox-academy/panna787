@@ -1,3 +1,5 @@
+package greenfoxorganization;
+
 import java.util.ArrayList;
 
 public class Cohort {

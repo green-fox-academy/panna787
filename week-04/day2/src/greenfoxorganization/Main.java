@@ -1,3 +1,7 @@
+package greenfoxorganization;
+
+import greenfoxorganization.Cohort;
+
 import java.util.ArrayList;
 
 public class Main {

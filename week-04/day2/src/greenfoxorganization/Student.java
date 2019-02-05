@@ -1,4 +1,8 @@
-public class Student extends Person{
+package greenfoxorganization;
+
+import greenfoxorganization.Person;
+
+public class Student extends Person {
     /*String name;
     int age;
     String gender;*/
