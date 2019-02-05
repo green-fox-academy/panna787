@@ -3,6 +3,8 @@ package gardenapplication;
 public class Tree extends Plant{
 
     public Tree(String color){
+
+        this.type = "Tree";
         this.color = color;
     }
 
@@ -13,12 +15,5 @@ public class Tree extends Plant{
         }
     }
 
-    public void info() {
-        if (needsWater) {
-            System.out.println("The " + color + " Tree needs water");
-        } else {
-            System.out.println("The " + color + " Tree doesnt need water");
-        }
-    }
 
 }
