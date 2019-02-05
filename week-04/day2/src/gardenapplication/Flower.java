@@ -1,4 +1,4 @@
-package thegarden;
+package gardenapplication;
 
 public class Flower extends Plant{
 

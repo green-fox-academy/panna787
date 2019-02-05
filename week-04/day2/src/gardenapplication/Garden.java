@@ -1,4 +1,4 @@
-package thegarden;
+package gardenapplication;
 
 import java.util.ArrayList;
 
