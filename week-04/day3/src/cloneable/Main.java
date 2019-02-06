@@ -6,7 +6,7 @@ public class Main {
 
         Student johnTheClone = john.clone();
 
-        System.out.println(johnTheClone);
+        System.out.println(johnTheClone.previousOrganization);
     }
 
 }

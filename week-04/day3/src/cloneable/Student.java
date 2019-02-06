@@ -39,7 +39,7 @@ public class Student extends Person {
 
     public Student clone(){
 
-        Student cloneStudent = this;
+        Student cloneStudent = new Student(this.name, this.age, this.gender, this.previousOrganization);
 
         return cloneStudent;
     }
