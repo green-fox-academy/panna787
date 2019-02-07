@@ -27,4 +27,6 @@ public class CountLettersTest {
 
         assertEquals(testMap, test.countLettersInString(testString));
     }
+
+
 }

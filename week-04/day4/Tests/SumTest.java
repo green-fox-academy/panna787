@@ -14,7 +14,7 @@ public class SumTest {
 
 
     @Test
-    public void sum_PositiveNumbers_ReturnsSum(){
+    public void sum_MultipleNumbers_ReturnsSum(){
         Sum mySum = new Sum();
         ArrayList<Integer> numbersToSum = new ArrayList<>();
         numbersToSum.add(1);
@@ -39,7 +39,6 @@ public class SumTest {
         Sum mySum = new Sum();
         ArrayList<Integer> numbersToSum = new ArrayList<>();
         mySum.sum(numbersToSum);
-
     }
 
     @Test(expected = NullPointerException.class)
