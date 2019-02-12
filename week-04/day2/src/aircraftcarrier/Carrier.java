@@ -18,15 +18,26 @@ public class Carrier {
         aircrafts.add(aircraft);
     }
 
-    public void fill(){
-        int totalAmmoNeeded = 0;
+    public ArrayList<Aircraft> getPriorityAircrafts(){
+        ArrayList<Aircraft> priorityAircrafts = new ArrayList<>();
+
         for (Aircraft aircraft: aircrafts
              ) {
-            totalAmmoNeeded += aircraft.maxAmmo - aircraft.currentAmmo;
+            if ((aircraft.isPriority())){
+                aircrafts.add(aircraft);
+            }
         }
+        return priorityAircrafts;
+    }
 
-        if (totalAmmoNeeded > ammo){
-
+    public void fill(){
+        int totalAmmoNeeded = 0;
+        int ammoToFill = 0;
+        for (Aircraft aircraft: aircrafts
+             ) {
+            ammoToFill = aircraft.maxAmmo - aircraft.currentAmmo;
+            totalAmmoNeeded += ammoToFill;
         }
+        
     }
 }
