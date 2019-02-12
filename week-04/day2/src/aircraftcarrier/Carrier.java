@@ -17,4 +17,16 @@ public class Carrier {
     public void add(Aircraft aircraft){
         aircrafts.add(aircraft);
     }
+
+    public void fill(){
+        int totalAmmoNeeded = 0;
+        for (Aircraft aircraft: aircrafts
+             ) {
+            totalAmmoNeeded += aircraft.maxAmmo - aircraft.currentAmmo;
+        }
+
+        if (totalAmmoNeeded > ammo){
+
+        }
+    }
 }

@@ -24,12 +24,13 @@ public class Aircraft {
     }
 
     public int refill(int ammoToFill){
-        int remainingAmmo = 0;
+        int remainingAmmo = ammoToFill;
         if(ammoToFill + currentAmmo > maxAmmo){
             currentAmmo = maxAmmo;
             remainingAmmo = ammoToFill - maxAmmo;
         } else {
             currentAmmo += ammoToFill;
+            remainingAmmo = 0;
         }
         return remainingAmmo;
     }
