@@ -9,7 +9,7 @@ public abstract class Animal {
         return name;
     }
 
-    void breed(){
+    public void breed(){
 
     }
 }
