@@ -39,6 +39,16 @@ public class Aircraft {
     }
 
     public String getStatus(){
-        String status = "Type: " + type + , Ammo: 10, Base Damage: 50, All Damage: 500
+        String status = "Type: " + type + ", Ammo: " + currentAmmo + ", Base Damage: " + baseDamage + ", All Damage: " + allDamage;
+
+        return status;
+    }
+
+    public boolean isPriority(){
+        if (type.equals("F35")){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
