@@ -28,9 +28,9 @@ public class Animal {
         String status = "";
 
         if(this.isHealthy){
-            status = this.name + "is healthy, and adoptable";
+            status = this.name + "is healthy, and adoptable.";
         } else {
-            status = this.name + "is not healthy (" + healCost + "€), and not adoptable";
+            status = this.name + "is not healthy (" + healCost + "€), and not adoptable.";
         }
 
         return status;
