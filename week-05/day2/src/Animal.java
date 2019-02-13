@@ -4,20 +4,21 @@ public class Animal {
     boolean isHealthy;
     int healCost;
 
-    public Animal(){
 
-    }
 
-    public Animal(String name){
+    public Animal(String name, boolean isHealthy, int healCost){
         this.name = name;
+        this.isHealthy = isHealthy;
+        this.healCost = healCost;
     }
 
     public void heal(){
-        isHealthy = true;
+        this.isHealthy = true;
+
     }
 
     public boolean isAdoptable(){
-        if(isHealthy){
+        if(this.isHealthy){
             return true;
         } else {
             return false;
@@ -30,7 +31,7 @@ public class Animal {
         if(this.isHealthy){
             status = this.name + "is healthy, and adoptable.";
         } else {
-            status = this.name + "is not healthy (" + healCost + "€), and not adoptable.";
+            status = this.name + "is not healthy (" + this.healCost + "€), and not adoptable.";
         }
 
         return status;

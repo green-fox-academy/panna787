@@ -1,7 +1,8 @@
 public class Dog extends Animal {
 
-    public Dog(){
-        this.name = "Dog";
-        this.healCost = (int)(Math.random()) * 7 + 1;
+    String name = "Dog";
+
+    public Dog(String name, boolean isHealthy, int healCost){
+        super(name, isHealthy, (int)(Math.random()) * 7 + 1);
     }
 }
