@@ -4,7 +4,9 @@ public class Animal {
     boolean isHealthy;
     int healCost;
 
+    public Animal(){
 
+    }
 
     public Animal(String name, boolean isHealthy, int healCost){
         this.name = name;
@@ -29,9 +31,9 @@ public class Animal {
         String status = "";
 
         if(this.isHealthy){
-            status = this.name + "is healthy, and adoptable.";
+            status = this.name + " is healthy, and adoptable.";
         } else {
-            status = this.name + "is not healthy (" + this.healCost + "€), and not adoptable.";
+            status = this.name + " is not healthy (" + this.healCost + "€), and not adoptable.";
         }
 
         return status;

@@ -15,14 +15,14 @@ public class AnimalShelter {
         return animals.size();
     }
 
-    public int heal(Animal animal){
+    public int heal(){
         int animalHealed = 0;
         Animal animalToHeal = null;
 
-        for (Animal a: animals
+        for (Animal animal: animals
              ) {
-            if(!a.isHealthy){
-                animalToHeal = a;
+            if(!animal.isHealthy){
+                animalToHeal = animal;
                 break;
             } else {
                 continue;
@@ -52,6 +52,8 @@ public class AnimalShelter {
         potentialOwner = adopters.get((int)Math.random() * (adopters.size()-1));
         adopters.remove(potentialOwner);
 
+        animalToAdopt = animals.get((int)Math.random() * (animals.size()-1));
+
         while (!animalToAdopt.isAdoptable()){
             animalToAdopt = animals.get((int)Math.random() * (animals.size()-1));
         }
@@ -70,11 +72,11 @@ public class AnimalShelter {
     }
 
     public String toString(){
-        String status = "Budget: " + budget + "€, There are " + animals.size() + " animal(s) and " + adopters.size() + " potential adopter(s)";
+        String status = "Budget: " + budget + "€, There are " + animals.size() + " animal(s) and " + adopters.size() + " potential adopter(s)" + "\n";
 
         for (Animal a: animals
              ) {
-            status += a.toString() + "/n";
+            status += a.toString() + "\n";
         }
         return status;
     }
