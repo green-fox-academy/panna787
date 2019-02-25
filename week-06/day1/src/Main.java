@@ -77,6 +77,9 @@ public class Main {
         Map<Character, Long> numberOfCharacters = splitStringToCharacters(example).stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
+        //Exercise 10
+        
+
     }
 
     public static List<Character> splitStringToCharacters(String stringToSplit){
