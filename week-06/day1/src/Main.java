@@ -81,7 +81,13 @@ public class Main {
         List<Fox> foxes = new ArrayList<>();
         Fox.fillUp(foxes);
 
-        
+        List<Fox> greenFoxes = foxes.stream().filter(f -> f.getColor().equals("green")).collect(Collectors.toList());
+
+        List<Fox> youngGreenFoxes = greenFoxes.stream().filter(f -> f.getAge() < 5).collect(Collectors.toList());
+
+        Map<String, Long> foxesByColor = foxes.stream()
+                .map(f -> f.getColor())
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
     }
 
