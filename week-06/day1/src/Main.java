@@ -52,7 +52,25 @@ public class Main {
             characters.add(example.substring(i, i+1));
         }
 
-        List<String> upperCaseCharacters = characters.stream().filter(c -> c.equals(c.toUpperCase())).collect(Collectors.toList());
+        List<String> upperCaseCharacters = characters.stream()
+                .filter(c -> c.equals(c.toUpperCase()))
+                .collect(Collectors.toList());
+
+        //Exercise 7
+        List<String> cities = Arrays.asList("ROME", "LONDON", "NAIROBI", "CALIFORNIA", "ZURICH", "NEW DELHI", "AMSTERDAM", "ABU DHABI", "PARIS");
+
+        String startingLetter = "A";
+        List<String> citiesStartingWith = cities.stream()
+                .filter(city -> city.startsWith(startingLetter))
+                .collect(Collectors.toList());
+
+        //Exercise 8
+        List<Character> charsToConcatenate = Arrays.asList('C', 'm', 'i');
+        String concatenatedCharacters = "";
+
+        charsToConcatenate.stream()
+                .forEach(c -> concatenatedCharacters.concat(c.toString()));
+
 
 
 
