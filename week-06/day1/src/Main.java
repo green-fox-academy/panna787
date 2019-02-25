@@ -1,8 +1,8 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.IntSummaryStatistics;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
 
@@ -45,34 +45,45 @@ public class Main {
                 .getSum();
         System.out.println(sum);
 
-        //Exercise 6
+        //Exercise 6 -- 1
         String example = "osdfhUoUOKulb";
-        List<String> characters = new ArrayList<>();
-        for (int i = 0; i < example.length(); i++) {
-            characters.add(example.substring(i, i+1));
-        }
 
-        List<String> upperCaseCharacters = characters.stream()
-                .filter(c -> c.equals(c.toUpperCase()))
+        List<Character> upperCaseCharacters = splitStringToCharacters(example).stream()
+                .filter(c -> Character.isUpperCase(c))
                 .collect(Collectors.toList());
+
+        //Exercise 6 -- 2
+        example.chars()
+                .filter(c -> Character.isUpperCase(c))
+                .forEach(System.out::println);
 
         //Exercise 7
         List<String> cities = Arrays.asList("ROME", "LONDON", "NAIROBI", "CALIFORNIA", "ZURICH", "NEW DELHI", "AMSTERDAM", "ABU DHABI", "PARIS");
-
         String startingLetter = "A";
+
         List<String> citiesStartingWith = cities.stream()
                 .filter(city -> city.startsWith(startingLetter))
                 .collect(Collectors.toList());
 
         //Exercise 8
         List<Character> charsToConcatenate = Arrays.asList('C', 'm', 'i');
-        String concatenatedCharacters = "";
+        String concatenatedCharacters = charsToConcatenate.stream()
+                .map(c -> c.toString())
+                .collect(Collectors.joining());
 
-        charsToConcatenate.stream()
-                .forEach(c -> concatenatedCharacters.concat(c.toString()));
+        System.out.println(concatenatedCharacters);
 
+        //Exercise 9
+        Map<Character, Long> numberOfCharacters = splitStringToCharacters(example).stream()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
+    }
 
-
+    public static List<Character> splitStringToCharacters(String stringToSplit){
+        List<Character> characters = new ArrayList<>();
+        for (int i = 0; i < stringToSplit.length(); i++) {
+            characters.add(stringToSplit.charAt(i));
+        }
+        return characters;
     }
 }
