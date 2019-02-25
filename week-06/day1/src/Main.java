@@ -78,6 +78,9 @@ public class Main {
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         //Exercise 10
+        List<Fox> foxes = new ArrayList<>();
+        Fox.fillUp(foxes);
+
         
 
     }

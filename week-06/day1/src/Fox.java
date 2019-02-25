@@ -20,4 +20,16 @@ public class Fox {
         foxes.add(new Fox("Felix", 3, "green"));
 
     }
+
+    public String getName(){
+        return name;
+    }
+
+    public int getAge(){
+        return age;
+    }
+
+    public String getColor(){
+        return color;
+    }
 }
