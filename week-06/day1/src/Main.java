@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.IntSummaryStatistics;
 import java.util.List;
@@ -17,7 +18,8 @@ public class Main {
         //Exercise 2
         List<Integer> squaredNumbers = numbers.stream()
                 .filter(n -> n>0)
-                .map(n -> n*n).collect(Collectors.toList());
+                .map(n -> n*n)
+                .collect(Collectors.toList());
 
         //Exercise 3
         List<Integer> numbers2 = Arrays.asList(3, 9, 2, 8, 6, 5);
@@ -42,6 +44,17 @@ public class Main {
                 .summaryStatistics()
                 .getSum();
         System.out.println(sum);
+
+        //Exercise 6
+        String example = "osdfhUoUOKulb";
+        List<String> characters = new ArrayList<>();
+        for (int i = 0; i < example.length(); i++) {
+            characters.add(example.substring(i, i+1));
+        }
+
+        List<String> upperCaseCharacters = characters.stream().filter(c -> c.equals(c.toUpperCase())).collect(Collectors.toList());
+
+
 
     }
 }
