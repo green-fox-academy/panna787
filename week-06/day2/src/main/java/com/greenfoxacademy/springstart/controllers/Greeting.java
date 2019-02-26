@@ -1,11 +1,13 @@
-package controllers;
+package com.greenfoxacademy.springstart.controllers;
 
-public class Greetings {
+import java.util.concurrent.atomic.AtomicLong;
+
+public class Greeting {
 
     private long id;
     private String content;
 
-    public Greetings(long id, String content){
+    public Greeting(long id, String content){
         this.id = id;
         this.content = content;
     }
