@@ -6,8 +6,7 @@
 </head>
 <body>
 
-<p th:style="${'color:rgb(' + color1 + ', ' + color2 + ', ' + color3 + '); font-size: ' + fontsize +'px;'}" th:text= "${hello} + ', World'"/>
-
+<p th:each="hello:${helloses}" th:style="${'color:rgb(' + color4 + ', ' + color5 + ', ' + color6 + '); font-size: ' + fontsize +'px;'}" th:text= "${hello} + ', World'"/>
 
 </body>
 </html>

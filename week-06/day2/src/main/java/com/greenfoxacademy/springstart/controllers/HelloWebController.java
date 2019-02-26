@@ -26,7 +26,6 @@ public class HelloWebController {
                 "Salve", "Ciao", "Kon-nichiwa", "An-nyong Ha-se-yo", "Salvëte", "Ni hao", "Dzien' dobry", "Olá", "Bunã ziua", "Zdravstvuyte", "Hola", "Jambo", "Hujambo", "Hej",
                 "Sa-wat-dee", "Merhaba", "Selam", "Vitayu", "Xin chào", "Hylo", "Sut Mae", "Sholem Aleychem", "Sawubona"};
 
-
         String hello = hellos[(int)(Math.random()*(hellos.length-1))];
         int fontSize = (int)(Math.random()*40)+14;
         int color1 = (int)(Math.random()*255);
@@ -40,5 +39,28 @@ public class HelloWebController {
         model.addAttribute("color3", color3);
 
         return "greeting2";
+    }
+
+    @RequestMapping(value="/web/greeteverybody")
+    public String greetEverybody(Model model){
+        String[] helloses = {"Mirëdita", "Ahalan", "Parev", "Zdravei", "Nei Ho", "Dobrý den", "Ahoj", "Goddag", "Goede dag, Hallo", "Hello", "Saluton", "Hei", "Bonjour",
+                "Guten Tag", "Gia'sou", "Aloha", "Shalom", "Namaste", "Namaste", "Jó napot", "Halló", "Helló", "Góðan daginn", "Halo", "Aksunai", "Qanuipit", "Dia dhuit",
+                "Salve", "Ciao", "Kon-nichiwa", "An-nyong Ha-se-yo", "Salvëte", "Ni hao", "Dzien' dobry", "Olá", "Bunã ziua", "Zdravstvuyte", "Hola", "Jambo", "Hujambo", "Hej",
+                "Sa-wat-dee", "Merhaba", "Selam", "Vitayu", "Xin chào", "Hylo", "Sut Mae", "Sholem Aleychem", "Sawubona"};
+
+        String hello = helloses[(int)(Math.random()*(helloses.length-1))];
+        int fontSize = (int)(Math.random()*40)+14;
+        int color4 = (int)(Math.random()*255);
+        int color5 = (int)(Math.random()*255);
+        int color6 = (int)(Math.random()*255);
+
+        model.addAttribute("hello", hello);
+        model.addAttribute("fontsize", fontSize);
+        model.addAttribute("color4", color4);
+        model.addAttribute("color5", color5);
+        model.addAttribute("color6", color6);
+        model.addAttribute("helloses", helloses);
+
+        return "greeting3";
     }
 }
