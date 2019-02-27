@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Sign up
+    </p>
+    <br>
+    <form action="https://newsletter-ws.herokuapp.com/register" method="POST">
+        <input type="text" name="name" placeholder="Username" class="box" required>
+        <input type="email" name="email" placeholder="E-mail" class="box" required>
+        <input type="password" name="password" placeholder="Password" class="box" required>
+        <input type="password" name="passwordConfirmation" placeholder="Retype password" class="box" required>
+        <input type="submit" value="SIGN ME UP" id="submit">
+    </form>
+</body>
+</html>
