@@ -1,0 +1,28 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+    color: darkturquoise;
+    border-bottom: 2px solid darkturquoise;
+    font-size: 40px;
+}
+
+.nav {
+    padding: 40px 0px;
+    width: 100%;
+}
+
+a {
+    background: red;
+    border: 1px solid red;
+    border-radius: 6px;
+    width: fit-content;
+    height: 25px;
+    text-align: center;
+    padding: 10px 5px;
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+
+}

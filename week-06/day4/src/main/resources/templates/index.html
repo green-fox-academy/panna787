@@ -1,15 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
 
+<h1>My Shop</h1>
+<div class="nav">
+    <a href="/only-available">ONLY AVAILABLE</a>
+    <a href="/cheapest-first">CHEAPEST FIRST</a>
+    <a href="/contain-scythe">CONTAINS SCYTHE</a>
+    <a href="/average-stoc">AVERAGE STOCK</a>
+    <a href="/most-expensive-available">MOST EXPENSIVE AVAILABLE</a>
+</div>
 
+<table>
+    <thead>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Quantity of stock</th>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${items}">
+        <td th:text="${item.getName()}"></td>
+        <td th:text="${item.getDescription()}"></td>
+        <td th:text="${item.getPrice()}"></td>
+        <td th:text="${item.getInStock()}"></td>
+    </tr>
+    </tbody>
+
+</table>
 
 </body>
 </html>
