@@ -15,14 +15,14 @@ import java.util.stream.Collectors;
 @Controller
 public class WebshopController {
 
-    @RequestMapping(value="/webshop")
+    @GetMapping(value="/webshop")
     public String webshop(Model model){
         ShopItems itemList = new ShopItems();
         List<ShopItem> items = itemList.getShopItemList();
         model.addAttribute("items", items);
         return "index";
     }
-    @RequestMapping(value="/only-available")
+    @GetMapping(value="/only-available")
     public String onlyAvailable(Model model){
         ShopItems itemList = new ShopItems();
         List<ShopItem> availableItems = itemList.getShopItemList().stream()
@@ -32,7 +32,7 @@ public class WebshopController {
         return "index";
     }
 
-    @RequestMapping(value="/cheapest-first")
+    @GetMapping(value="/cheapest-first")
     public String cheapestFirst(Model model){
         ShopItems itemList = new ShopItems();
         List<ShopItem> sortedItems = itemList.getShopItemList().stream()
@@ -42,7 +42,7 @@ public class WebshopController {
         return "index";
     }
 
-    @RequestMapping(value="/contains-scythe")
+    @GetMapping(value="/contains-scythe")
     public String containsScythe(Model model){
         ShopItems itemList = new ShopItems();
         List<ShopItem> itemsWithScythe = itemList.getShopItemList().stream()
@@ -52,7 +52,7 @@ public class WebshopController {
         return "index";
     }
 
-    @RequestMapping(value = "/most-expensive-available")
+    @GetMapping(value = "/most-expensive-available")
     public String mostExpensiveAvailable(Model model){
         ShopItems itemList = new ShopItems();
         List<ShopItem> mostExpensiveAvailableItem = itemList.getShopItemList().stream()
@@ -64,7 +64,7 @@ public class WebshopController {
         return "index";
     }
 
-    @RequestMapping(value = "/average-stock")
+    @GetMapping(value = "/average-stock")
     public String averageStock(Model model){
         ShopItems itemList = new ShopItems();
         OptionalDouble average = itemList.getShopItemList().stream().mapToDouble(a -> a.getInStock()).average();
