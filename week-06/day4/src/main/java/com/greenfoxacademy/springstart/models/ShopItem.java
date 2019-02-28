@@ -1,6 +1,6 @@
 package com.greenfoxacademy.springstart.models;
 
-public class ShopItem {
+public class ShopItem implements Comparable<ShopItem>{
     private String name;
     private String description;
     private int price;
@@ -12,6 +12,10 @@ public class ShopItem {
         this.price = price;
         this.inStock = inStock;
     }
+
+   /* public int compareTo(ShopItem s){
+        return s.price - this.price;
+    }*/
 
     public String getName(){
         return name;
@@ -29,4 +33,16 @@ public class ShopItem {
         return inStock;
     }
 
+
+    @Override
+    public int compareTo(ShopItem s) {
+        if(this.getPrice() > s.getPrice()){
+            return 1;
+        } else if(this.getPrice() == s.getPrice()){
+        return 0;
+        } else {
+            return -1;
+        }
+
+    }
 }

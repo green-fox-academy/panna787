@@ -18,23 +18,9 @@
     <a href="/most-expensive-available">MOST EXPENSIVE AVAILABLE</a>
 </div>
 
-<table>
-    <thead>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Quantity of stock</th>
-    </thead>
-    <tbody>
-    <tr th:each="item : ${items}">
-        <td th:text="${item.getName()}"></td>
-        <td th:text="${item.getDescription()}"></td>
-        <td th:text="${item.getPrice()} + 'Ft'"></td>
-        <td th:text="${item.getInStock()}"></td>
-    </tr>
-    </tbody>
+<p th:text="'Average stock: ' + ${average}">
 
-</table>
+</p>
 
 </body>
 </html>

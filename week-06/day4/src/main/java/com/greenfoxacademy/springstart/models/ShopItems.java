@@ -3,7 +3,7 @@ package com.greenfoxacademy.springstart.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShopItems {
+public class ShopItems{
     private List<ShopItem> shopItemList = new ArrayList<>();
 
     public ShopItems(){
@@ -17,4 +17,5 @@ public class ShopItems {
     public List<ShopItem> getShopItemList(){
         return shopItemList;
     }
+
 }
