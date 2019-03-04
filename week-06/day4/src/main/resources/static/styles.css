@@ -6,6 +6,7 @@ h1 {
     color: darkturquoise;
     border-bottom: 2px solid darkturquoise;
     font-size: 40px;
+
 }
 
 .nav {
@@ -25,6 +26,20 @@ a {
     display: inline-block;
     text-decoration: none;
 
+}
+
+thead {
+    background: skyblue;
+    border: 1px solid skyblue;
+    padding: 25px;
+    font-size: 20px;
+    width: 100%;
+}
+
+tbody {
+    padding: 25px;
+    font-size: 20px;
+    width: 100%;őő
 }
 
 form {
