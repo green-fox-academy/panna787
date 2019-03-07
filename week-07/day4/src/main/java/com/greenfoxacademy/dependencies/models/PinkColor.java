@@ -8,7 +8,7 @@ public class PinkColor implements MyColor {
 
     @Autowired
     PinkColor(Printer p){
-        p.log("It is pink in color...");
+        this.p = p;
     }
 
     @Override

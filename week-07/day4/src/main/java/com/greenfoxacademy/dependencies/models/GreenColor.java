@@ -10,7 +10,7 @@ public class GreenColor implements MyColor {
 
     @Autowired
     GreenColor(Printer p){
-        p.log("It is green in color...");
+        this.p = p;
     }
 
     @Override

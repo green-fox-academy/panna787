@@ -10,11 +10,11 @@ public class BlueColor implements MyColor {
 
     @Autowired
     BlueColor(Printer p){
-        p.log("It is blue in color...");
+        this.p = p;
     }
 
     @Override
     public void printColor() {
-        System.out.println("It is blue in color...");
+        p.log("It is blue in color...");
     }
 }
