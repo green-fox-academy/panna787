@@ -53,7 +53,7 @@ public class MainController {
         return "redirect:/?name=" + name;
     }
 
-    @RequestMapping(value = "/nutritionstore", method= RequestMethod.GET)
+    @RequestMapping(value = "/nutritionStore", method= RequestMethod.GET)
     public String showNutritionStore(){
         return "nutritionStore";
     }
