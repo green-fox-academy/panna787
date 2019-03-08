@@ -19,11 +19,18 @@
 
     <br>
 
-    <p>This is ... </p>
+    <p th:object="${fox}" th:text="'This is ' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} + '. He knows ' + *{listOfTricks.size()} + ' tricks.'"></p>
+
     <h1>Known tricks</h1>
-    <ul>
-        <li> ... </li>
-    </ul>
+
+    <div th:object="${fox}">
+        <p th:if="*{listOfTricks.size()==0}">
+            You know no tricks yet. Go and learn some.
+        </p>
+        <ul th:unless="*{listOfTricks.size()==0}" th:each="trick: *{listOfTricks}">
+            <li th:text="${trick}"></li>
+        </ul>
+    </div>
 
 </body>
 </html>
