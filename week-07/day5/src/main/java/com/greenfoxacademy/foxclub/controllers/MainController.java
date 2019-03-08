@@ -1,7 +1,6 @@
 package com.greenfoxacademy.foxclub.controllers;
 
 import com.greenfoxacademy.foxclub.models.Fox;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -55,6 +54,6 @@ public class MainController {
 
     @RequestMapping(value = "/nutritionstore", method= RequestMethod.GET)
     public String showNutritionStore(){
-        return "nutritionstore";
+        return "nutritionStore";
     }
 }
