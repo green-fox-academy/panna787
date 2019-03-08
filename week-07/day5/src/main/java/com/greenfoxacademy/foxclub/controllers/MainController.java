@@ -39,11 +39,11 @@ public class MainController {
         } else {
             return "login";
         }
-
     }
 
     @RequestMapping(value = "/login", method= RequestMethod.GET)
     public String loginForm(){
+
         return "login";
     }
 
@@ -51,7 +51,10 @@ public class MainController {
     public String login(@ModelAttribute(name="fox") Fox fox, @RequestParam String name){
 
         return "redirect:/?name=" + name;
+    }
 
-
+    @RequestMapping(value = "/nutritionstore", method= RequestMethod.GET)
+    public String showNutritionStore(){
+        return "nutritionstore";
     }
 }
