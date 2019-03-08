@@ -36,6 +36,7 @@ public class MainController {
             return "index";
 
         } else {
+            foxes.add(new Fox(name));
             return "login";
         }
     }
