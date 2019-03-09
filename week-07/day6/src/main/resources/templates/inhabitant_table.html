@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Inhabitant Table</title>
 </head>
 <body>
-$END$
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+        </tr>
+        <tr th:each="inhabitant : ${inhabitants}">
+            <td th:text="${inhabitant.id}"></td>
+            <td>
+                <a th:href="@{'/inhabitants/' + ${inhabitant.id}}">
+                    <span  th:text="${inhabitant.name}"></span>
+                </a>
+            </td>
+            <td th:text="${inhabitant.age}"></td>
+            <td th:text="${inhabitant.gender}"></td>
+        </tr>
+    </table>
+
 </body>
 </html>

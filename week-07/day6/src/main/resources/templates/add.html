@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
+<form action=# th:object="${inhabitant}" th:action="@{/inhabitant/add}" method="post">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" th:field="*{name}" required>
+
+    <label for="age">Age</label>
+    <input type="number" id="age" name="age" th:field="*{age}" required>
+
+
+    <ul>
+        <li th:each="radioValue : ${genders}">
+            <input type="radio"
+            th:field="*{gender}"
+            th:value="${radioValue}" required>
+            <label th:for="${#ids.prev('gender')}" th:text="${radioValue}">
+
+            </label>
+        </li>
+    </ul>
+
+
+    <button type="submit">Send</button>
+</form>
+
 </body>
 </html>
