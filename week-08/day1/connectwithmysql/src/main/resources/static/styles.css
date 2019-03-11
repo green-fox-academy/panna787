@@ -1,0 +1,24 @@
+table{
+    width: 50%;
+    padding: 5px 0 0 0;
+    border: darkgray solid 1px;
+}
+
+thead{
+    position: center;
+    margin: 20px;
+    padding: 10px;
+    background: dodgerblue;
+    color: lightgray;
+    font-size: 30px;
+    font-weight: normal;
+}
+th{
+    padding: 5px;
+    border: solid 1px;
+}
+td{
+    padding: 5px;
+    font-size: 20px;
+    border: solid 1px;
+}

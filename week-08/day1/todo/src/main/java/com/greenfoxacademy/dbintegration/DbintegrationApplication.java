@@ -22,6 +22,6 @@ public class DbintegrationApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         todoRepository.save(new Todo("I have to learn Object Relational Mapping"));
         todoRepository.save(new Todo("something else"));
-        todoRepository.save(new Todo("one more"));
+
     }
 }
