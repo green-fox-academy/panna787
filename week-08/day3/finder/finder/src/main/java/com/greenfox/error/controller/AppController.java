@@ -16,7 +16,7 @@ import java.util.List;
  * Created by aze on 25/10/17.
  */
 @Controller
-@RequestMapping("/app")
+@RequestMapping("/")
 public class AppController {
 
     UserService service;
@@ -26,7 +26,7 @@ public class AppController {
         this.service = service;
     }
 
-    @GetMapping("/")
+    @GetMapping("/app")
     public String index(Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("yolo", service.getAll());
@@ -34,8 +34,8 @@ public class AppController {
     }
 
     @PostMapping("/app")
-    public String create(@ModelAttribute(name="yolo") List<User> users, User user) {
+    public String create(@ModelAttribute(name="user") User user) {
         service.save(user);
-        return "redirect:/";
+        return "redirect:/app";
     }
 }
