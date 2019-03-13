@@ -23,8 +23,6 @@ public class Todo {
         this.title = title;
     }
 
-
-
     public String getTitle() {
         return title;
     }

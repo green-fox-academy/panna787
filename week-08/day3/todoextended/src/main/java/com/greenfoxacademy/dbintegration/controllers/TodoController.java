@@ -72,7 +72,8 @@ public class TodoController {
     }*/
 
   @RequestMapping(value = "/search", method = RequestMethod.POST)
-  public String searchInTodos(Model model){
-      return "search";
+  public String searchInTodos(Model model, @RequestParam("search") String search){
+      List<Todo> filteredTodos;
+      return "redirect:/todo/list";
   }
 }

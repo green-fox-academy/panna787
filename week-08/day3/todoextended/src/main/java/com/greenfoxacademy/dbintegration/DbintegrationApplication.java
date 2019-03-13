@@ -21,15 +21,12 @@ public class DbintegrationApplication implements CommandLineRunner {
         this.assigneeRepository = assigneeRepository;
     }
 
-
     public static void main(String[] args) {
         SpringApplication.run(DbintegrationApplication.class, args);
     }
 
     @Override
     public void run(String... args) throws Exception {
-        todoRepository.save(new Todo("learn Object Relational Mapping"));
-        todoRepository.save(new Todo("something else"));
 
     }
 }

@@ -17,7 +17,7 @@ public class Assignee {
     private List<Todo> todos;
 
     public Assignee(){
-
+        this.todos = new ArrayList<>();
     }
 
     public Assignee(String name, String email, List<Todo> todos) {
@@ -42,4 +42,11 @@ public class Assignee {
         this.email = email;
     }
 
+    public List<Todo> getTodos() {
+        return todos;
+    }
+
+    public void addTodo(Todo todo){
+        todos.add(todo);
+    }
 }
