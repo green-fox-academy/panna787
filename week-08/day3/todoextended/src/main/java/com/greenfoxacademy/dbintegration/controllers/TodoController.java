@@ -70,4 +70,9 @@ public class TodoController {
         todoRepository.save(todo);
         return "redirect:/todo/list";
     }*/
+
+  @RequestMapping(value = "/search", method = RequestMethod.POST)
+  public String searchInTodos(Model model){
+      return "search";
+  }
 }
