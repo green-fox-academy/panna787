@@ -60,13 +60,14 @@ public class TodoController {
 
     @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
     public String updateTodoForm(Model model, @PathVariable("id") long id) {
-        model.addAttribute("todo", todoRepository.findById(id).get());
-        return "update";
+        todoRepository.findById(id).get().setDone(true);
+        //model.addAttribute("todo", todoRepository.findById(id).get());
+        return "redirect:/todo/list";
     }
 
-    @RequestMapping(value = "/{id}/edit", method = RequestMethod.POST)
+  /*  @RequestMapping(value = "/{id}/edit", method = RequestMethod.POST)
     public String updateTodo(@PathVariable("id") long id, @ModelAttribute(name = "todo") Todo todo) {
         todoRepository.save(todo);
         return "redirect:/todo/list";
-    }
+    }*/
 }

@@ -23,11 +23,12 @@
     </thead>
     <tr th:each="todo : ${todos}">
 
-        <td th:text="${todo.title}"></td>
-                
-        <td><a th:href="@{'/todo/' + ${todo.id} + '/delete'}">delete</a>
+        <td th:text="${todo.title}">
+        </td>
+
+        <td><a th:href="@{'/todo/' + ${todo.id} + '/delete'}">Remove</a>
         <br>
-        <a th:href="@{'/todo/' + ${todo.id} + '/edit'}">edit</a></td>
+        <a th:href="@{'/todo/' + ${todo.id} + '/edit'}">Complete</a></td>
     </tr>
 
 </table>
