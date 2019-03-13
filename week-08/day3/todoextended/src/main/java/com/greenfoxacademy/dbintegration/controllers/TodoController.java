@@ -25,17 +25,20 @@ public class TodoController {
     @GetMapping(value = {"/", "/list"})
     public String list(Model model) {
         model.addAttribute("todos", todoRepository.findAll());
+        model.addAttribute("todo", new Todo());
         return "todolist";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/", method = RequestMethod.GET)
     public String showActiveTodos(Model model, @RequestParam(name = "isActive") boolean isActive) {
         List<Todo> allTodos = new ArrayList<>();
         todoRepository.findAll().forEach(todo -> allTodos.add(todo));
-        List<Todo> activeTodos = allTodos.stream().filter(todo -> todo.isDone() != isActive).collect(Collectors.toList());
+        List<Todo> activeTodos = allTodos.stream()
+                .filter(todo -> todo.isDone() != isActive)
+                .collect(Collectors.toList());
         model.addAttribute("todos", activeTodos);
         return "activetodos";
-    }
+    }*/
 
     @GetMapping("/add")
     public String addNewTodoForm(Model model) {

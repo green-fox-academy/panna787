@@ -6,15 +6,31 @@
 </head>
 <body>
 
-<h1>Todos for today:</h1>
+<h1>Todos</h1>
+<h2>New Todo</h2>
 
-<form>
-    <input/>
+<form action="#" th:action="@{/todo/add}" th:object="${todo}" method="post">
+    <input type="text" th:field="*{title}"/>
+    <input type="submit" value="add">
 </form>
 
-<ul th:each="todo : ${todos}">
-    <li th:text="${todo.title}"></li>
-</ul>
+<table>
+    <thead>
+
+    <th>Todo</th>
+    <th>Actions</th>
+
+    </thead>
+    <tr th:each="todo : ${todos}">
+
+        <td th:text="${todo.title}"></td>
+                
+        <td><a th:href="@{'/todo/' + ${todo.id} + '/delete'}">delete</a>
+        <br>
+        <a th:href="@{'/todo/' + ${todo.id} + '/edit'}">edit</a></td>
+    </tr>
+
+</table>
 
 </body>
 </html>
