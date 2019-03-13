@@ -19,8 +19,12 @@ import java.util.List;
 @RequestMapping("/app")
 public class AppController {
 
-    @Autowired
     UserService service;
+
+    @Autowired
+    public AppController(UserService service){
+        this.service = service;
+    }
 
     @GetMapping("/")
     public String index(Model model) {
