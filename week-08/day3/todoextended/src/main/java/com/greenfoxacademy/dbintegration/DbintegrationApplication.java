@@ -1,6 +1,7 @@
 package com.greenfoxacademy.dbintegration;
 
 import com.greenfoxacademy.dbintegration.models.Todo;
+import com.greenfoxacademy.dbintegration.repository.AssigneeRepository;
 import com.greenfoxacademy.dbintegration.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -10,8 +11,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DbintegrationApplication implements CommandLineRunner {
 
-    @Autowired
+
     private TodoRepository todoRepository;
+    private AssigneeRepository assigneeRepository;
+
+    @Autowired
+    public DbintegrationApplication(TodoRepository todoRepository, AssigneeRepository assigneeRepository){
+        this.todoRepository = todoRepository;
+        this.assigneeRepository = assigneeRepository;
+    }
 
 
     public static void main(String[] args) {
@@ -20,7 +28,7 @@ public class DbintegrationApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        todoRepository.save(new Todo("I have to learn Object Relational Mapping"));
+        todoRepository.save(new Todo("learn Object Relational Mapping"));
         todoRepository.save(new Todo("something else"));
 
     }

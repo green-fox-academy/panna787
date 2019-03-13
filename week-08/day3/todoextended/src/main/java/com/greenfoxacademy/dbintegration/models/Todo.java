@@ -1,10 +1,7 @@
 package com.greenfoxacademy.dbintegration.models;
 
 import javax.annotation.Generated;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Todo {
@@ -15,6 +12,8 @@ public class Todo {
     private String title;
     private boolean urgent;
     private boolean done;
+    @ManyToOne
+    private Assignee assignee;
 
     public Todo(){
 
@@ -52,5 +51,13 @@ public class Todo {
 
     public long getId() {
         return id;
+    }
+
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
     }
 }
