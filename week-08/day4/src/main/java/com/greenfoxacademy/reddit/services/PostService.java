@@ -30,6 +30,10 @@ public class PostService {
         return post;
     }
 
+    public Iterable<Post> getTop10Posts(){
+        return postRepository.findTop10Posts();
+    }
+
     public void upvotePost(Long id) {
         Post post = findPostById(id);
         post.increaseVotes();

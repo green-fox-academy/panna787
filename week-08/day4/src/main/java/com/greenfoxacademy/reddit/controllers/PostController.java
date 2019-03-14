@@ -22,7 +22,7 @@ public class PostController {
 
     @RequestMapping("/")
     public String main(Model model){
-        model.addAttribute("posts", postService.getAllPost());
+        model.addAttribute("posts", postService.getTop10Posts());
         return "index";
     }
 
