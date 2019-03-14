@@ -22,7 +22,7 @@ public class PostController {
 
     @RequestMapping("/")
     public String main(Model model){
-        model.addAttribute("posts", postService.getAllPosts());
+        model.addAttribute("posts", postService.getAllPost());
         return "index";
     }
 
@@ -40,13 +40,13 @@ public class PostController {
 
     @RequestMapping(value = "/{id}/upvote", method = RequestMethod.GET)
     public String upvotePost(@PathVariable("id") Long id){
-        postService.upvotePostById(id);
+        postService.upvotePost(id);
         return "redirect:/";
     }
 
     @RequestMapping(value = "/{id}/downvote", method = RequestMethod.GET)
     public String downvotePost(@PathVariable("id") Long id){
-        postService.downvotePostById(id);
+        postService.downvotePost(id);
         return "redirect:/";
     }
 }

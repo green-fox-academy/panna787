@@ -57,10 +57,12 @@ public class Post {
     }
 
     public void increaseVotes(){
-        votes++;
+        this.votes++;
     }
 
     public void decreaseVotes(){
-        votes--;
+        if(this.votes > 0){
+        this.votes--;
+        }
     }
 }

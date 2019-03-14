@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class PostService {
+
     private PostRepository postRepository;
 
     @Autowired
@@ -21,17 +22,15 @@ public class PostService {
         postRepository.save(post);
     }
 
-    public List<Post> getAllPosts(){
-        List<Post> posts = new ArrayList<>();
-        postRepository.findAll().forEach(post -> posts.add(post));
-        return posts;
-    }
-
-    public void upvotePostById(Long id){
+    public void upvotePost(Long id){
         postRepository.findById(id).get().increaseVotes();
     }
 
-    public void downvotePostById(Long id){
+    public void downvotePost(Long id){
         postRepository.findById(id).get().decreaseVotes();
+    }
+
+    public Iterable<Post> getAllPost(){
+        return postRepository.findAll();
     }
 }
