@@ -48,7 +48,9 @@ public class PostService {
 
     }
 
-    public Iterable<Post> getAllPost(){
-        return postRepository.findAll();
+    public List<Post> getAllPost(){
+        List<Post> posts = new ArrayList<>();
+        postRepository.findAll().forEach(posts::add);
+        return posts;
     }
 }
