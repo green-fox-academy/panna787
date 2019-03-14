@@ -1,10 +1,13 @@
 package com.greenfoxacademy.reddit.controllers;
 
+import com.greenfoxacademy.reddit.models.Post;
 import com.greenfoxacademy.reddit.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class PostController {
@@ -17,8 +20,20 @@ public class PostController {
     }
 
     @RequestMapping("/")
-    public  String main(Model model){
-
+    public String main(Model model){
+        model.addAttribute("posts", postService.getAllPosts());
         return "index";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String addNewPostForm(Model model){
+        model.addAttribute("post", new Post());
+        return "newpost";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String addNewPost(@ModelAttribute(name="post") Post post){
+        postService.addPost(post);
+        return "redirect:/";
     }
 }

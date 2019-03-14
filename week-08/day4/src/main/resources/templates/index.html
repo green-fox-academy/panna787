@@ -10,5 +10,16 @@
         Trending posts
     </h2>
 
+    <a th:href="@{/add}">Submit new post</a>
+
+    <table>
+        <tr th:each="post : ${posts}">
+            <td th:text="${post.votes}"></td>
+            <td th:text="+"></td>
+            <td th:text="-"></td>
+            <td><a th:text="${post.title}"></a></td>
+        </tr>
+    </table>
+
 </body>
 </html>
