@@ -22,21 +22,26 @@ public class PostService {
         postRepository.save(post);
     }
 
-    public void upvotePost(Long id) {
+    public Post findPostById(Long id){
+        Post post = null;
         if (postRepository.findById(id).isPresent()) {
-            Post post = postRepository.findById(id).get();
-            post.increaseVotes();
-            //TODO: remove code duplication
-            postRepository.save(post);
+             post = postRepository.findById(id).get();
         }
+        return post;
+    }
+
+    public void upvotePost(Long id) {
+        Post post = findPostById(id);
+        post.increaseVotes();
+        addPost(post);
+
     }
 
     public void downvotePost(Long id){
-        if (postRepository.findById(id).isPresent()) {
-            Post post = postRepository.findById(id).get();
-            post.decreaseVotes();
-            postRepository.save(post);
-        }
+        Post post = findPostById(id);
+        post.decreaseVotes();
+        addPost(post);
+
     }
 
     public Iterable<Post> getAllPost(){
