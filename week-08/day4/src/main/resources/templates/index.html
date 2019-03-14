@@ -6,17 +6,17 @@
 </head>
 <body>
 
+<a th:href="@{/add}">Submit new post</a>
+
     <h2>
         Trending posts
     </h2>
 
-    <a th:href="@{/add}">Submit new post</a>
-
     <table>
         <tr th:each="post : ${posts}">
             <td th:text="${post.votes}"></td>
-            <td th:text="+"></td>
-            <td th:text="-"></td>
+            <td><a th:href="@{${post.id} + '/upvote'}">+</a></td>
+            <td><a th:href="@{${post.id} + '/downvote'}">-</a></td>
             <td><a th:text="${post.title}"></a></td>
         </tr>
     </table>

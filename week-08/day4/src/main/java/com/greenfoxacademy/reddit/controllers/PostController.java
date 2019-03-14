@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -34,6 +35,18 @@ public class PostController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addNewPost(@ModelAttribute(name="post") Post post){
         postService.addPost(post);
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/{id}/upvote", method = RequestMethod.GET)
+    public String upvotePost(@PathVariable("id") Long id){
+        postService.upvotePostById(id);
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/{id}/downvote", method = RequestMethod.GET)
+    public String downvotePost(@PathVariable("id") Long id){
+        postService.downvotePostById(id);
         return "redirect:/";
     }
 }

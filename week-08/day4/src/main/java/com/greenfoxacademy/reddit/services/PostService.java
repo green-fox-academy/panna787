@@ -26,4 +26,12 @@ public class PostService {
         postRepository.findAll().forEach(post -> posts.add(post));
         return posts;
     }
+
+    public void upvotePostById(Long id){
+        postRepository.findById(id).get().increaseVotes();
+    }
+
+    public void downvotePostById(Long id){
+        postRepository.findById(id).get().decreaseVotes();
+    }
 }
