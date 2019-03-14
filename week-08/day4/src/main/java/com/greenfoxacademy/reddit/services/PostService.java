@@ -16,4 +16,14 @@ public class PostService {
     public PostService(PostRepository postRepository){
         this.postRepository = postRepository;
     }
+
+    public void addPost(Post post){
+        postRepository.save(post);
+    }
+
+    public List<Post> getAllPosts(){
+        List<Post> posts = new ArrayList<>();
+        postRepository.findAll().forEach(post -> posts.add(post));
+        return posts;
+    }
 }
