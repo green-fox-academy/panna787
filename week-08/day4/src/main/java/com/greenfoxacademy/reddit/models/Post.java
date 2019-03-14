@@ -1,9 +1,8 @@
 package com.greenfoxacademy.reddit.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.xml.crypto.Data;
+import java.util.Date;
 
 @Entity
 public class Post {
@@ -13,15 +12,19 @@ public class Post {
     private String title;
     private String url;
     private int votes;
+    @Temporal(TemporalType.DATE)
+    private Date createdAt;
 
     public Post(){
         this.votes = 0;
+        createdAt = new Date();
     }
 
     public Post(String title, String url) {
         this.title = title;
         this.url = url;
         this.votes = 0;
+        this.createdAt = new Date();
     }
 
     public Long getId() {
@@ -61,8 +64,14 @@ public class Post {
     }
 
     public void decreaseVotes(){
-        if(this.votes > 0){
         this.votes--;
-        }
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }
