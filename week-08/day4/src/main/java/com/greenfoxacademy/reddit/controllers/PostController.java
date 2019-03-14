@@ -26,13 +26,13 @@ public class PostController {
         return "index";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/submit", method = RequestMethod.GET)
     public String addNewPostForm(Model model){
         model.addAttribute("post", new Post());
         return "newpost";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/submit", method = RequestMethod.POST)
     public String addNewPost(@ModelAttribute(name="post") Post post){
         postService.addPost(post);
         return "redirect:/";
