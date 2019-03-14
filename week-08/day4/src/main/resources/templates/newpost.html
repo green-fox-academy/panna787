@@ -10,5 +10,17 @@
         Submit a new post
     </h1>
 
+    <form action="#" th:action="@{/add}" method="post" th:object="${post}">
+
+        <label for="title" th:text="'Title: '"></label>
+        <input type="text" name="title" id="title" th:field="*{title}">
+
+        <label for="url" th:text="'URL: '"></label>
+        <input type="url" name="url" id="url" th:field="*{url}">
+
+        <input type="submit" value="Submit">
+
+    </form>
+
 </body>
 </html>
