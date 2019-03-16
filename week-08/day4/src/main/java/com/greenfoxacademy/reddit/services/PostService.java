@@ -30,8 +30,10 @@ public class PostService {
         return post;
     }
 
-    public Iterable<Post> getTop10Posts(){
-        return postRepository.findTop10Posts();
+    public List<Post> getTop10Posts(){
+        List<Post> top10Posts = new ArrayList<>();
+        postRepository.findTop10Posts().forEach(post -> top10Posts.add(post));
+        return top10Posts;
     }
 
     public void upvotePost(Long id) {
