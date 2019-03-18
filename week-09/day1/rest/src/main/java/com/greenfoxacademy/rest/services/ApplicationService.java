@@ -1,6 +1,7 @@
 package com.greenfoxacademy.rest.services;
 
 import com.greenfoxacademy.rest.models.DoubledNumber;
+import com.greenfoxacademy.rest.models.Greeting;
 import com.greenfoxacademy.rest.models.InputError;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,12 @@ public class ApplicationService {
         InputError error = new InputError();
         error.setError(message);
         return error;
+    }
+
+    public Greeting showGreeting(String name, String title){
+        Greeting greeting = new Greeting();
+        greeting.setWelcome_message("Oh, hi there " + name + ", my dear " + title + "!");
+        return greeting;
     }
 
 

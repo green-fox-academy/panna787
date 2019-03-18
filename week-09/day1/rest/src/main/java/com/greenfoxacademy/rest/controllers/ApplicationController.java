@@ -24,4 +24,17 @@ public class ApplicationController {
            return service.showErrorMessage("Please provide an input!");
        }
     }
+
+    @RequestMapping("/greeter")
+    public Object showGreeting(@RequestParam(required = false, value = "name") String name, @RequestParam(required = false, value = "title") String title){
+        if(name != null && title != null){
+            return service.showGreeting(name, title);
+        } else if(name == null && title != null){
+            return service.showErrorMessage("Please provide a name!");
+        } else if(title == null && name != null){
+            return service.showErrorMessage("Please provide a title!");
+        } else {
+            return service.showErrorMessage("Please provide a name and a title!");
+        }
+    }
 }
