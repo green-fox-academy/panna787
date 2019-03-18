@@ -3,37 +3,41 @@ package com.greenfoxacademy.rest.services;
 import com.greenfoxacademy.rest.models.*;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 public class ApplicationService {
 
-    public ApplicationService(){}
+    public ApplicationService() {
+    }
 
-    public DoubledNumber doubleNumber(int input){
+    public DoubledNumber doubleNumber(int input) {
         DoubledNumber number = new DoubledNumber();
         number.setReceived(input);
-        number.setResult(input*2);
+        number.setResult(input * 2);
         return number;
     }
 
-    public InputError showErrorMessage(String message){
+    public InputError showErrorMessage(String message) {
         InputError error = new InputError();
         error.setError(message);
         return error;
     }
 
-    public Greeting showGreeting(String name, String title){
+    public Greeting showGreeting(String name, String title) {
         Greeting greeting = new Greeting();
         greeting.setWelcome_message("Oh, hi there " + name + ", my dear " + title + "!");
         return greeting;
     }
 
-    public Appended appendAToString(String word){
+    public Appended appendAToString(String word) {
         Appended appended = new Appended();
         appended.setAppended(word + "a");
         return appended;
     }
 
-    public UntilResult sumResult(Until until){
+    public UntilResult sumResult(Until until) {
         UntilResult sumResult = new UntilResult();
         int sum = 0;
         for (int i = until.getUntil(); i > 0; i--) {
@@ -43,7 +47,7 @@ public class ApplicationService {
         return sumResult;
     }
 
-    public UntilResult factorResult(Until until){
+    public UntilResult factorResult(Until until) {
         UntilResult factorResult = new UntilResult();
         int factor = 1;
         for (int i = until.getUntil(); i > 0; i--) {
@@ -51,5 +55,29 @@ public class ApplicationService {
         }
         factorResult.setResult(factor);
         return factorResult;
+    }
+
+    public Map<String, Object> calculateResult(ArrayHandler arrayHandler) {
+        Map<String, Object> resultMap = new HashMap<>();
+        if (arrayHandler.getWhat().equals("sum")) {
+            Integer result = 0;
+            for (int i : arrayHandler.getNumbers()) {
+                result += i;
+            }
+            resultMap.put("result", result);
+        } else if (arrayHandler.getWhat().equals("multiply")) {
+            Integer result = 1;
+            for (int i : arrayHandler.getNumbers()) {
+                result *= i;
+            }
+            resultMap.put("result", result);
+        } else if (arrayHandler.getWhat().equals("double")) {
+            int[] result = new int[arrayHandler.getNumbers().length];
+            for (int i = 0; i < arrayHandler.getNumbers().length; i++) {
+                result[i] = arrayHandler.getNumbers()[i] * 2;
+            }
+            resultMap.put("result", result);
+        }
+        return resultMap;
     }
 }
