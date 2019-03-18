@@ -1,6 +1,7 @@
 package com.greenfoxacademy.rest.controllers;
 
 import com.greenfoxacademy.rest.models.Appended;
+import com.greenfoxacademy.rest.models.ArrayHandler;
 import com.greenfoxacademy.rest.models.Until;
 import com.greenfoxacademy.rest.models.UntilResult;
 import com.greenfoxacademy.rest.services.ApplicationService;
@@ -59,6 +60,15 @@ public class ApplicationController {
             return service.showErrorMessage("Please provide a number!");
         } else{
             return service.factorResult(until);
+        }
+    }
+
+    @PostMapping("/arrays")
+    public Object showArrayCalculationResult(@RequestBody ArrayHandler arrayHandler){
+        if(arrayHandler.getWhat() != null && arrayHandler.getNumbers() != null){
+            return service.calculateResult(arrayHandler);
+        } else {
+            return service.showErrorMessage("Please provide what to do with the numbers!");
         }
     }
 
