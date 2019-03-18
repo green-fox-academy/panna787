@@ -1,5 +1,6 @@
 package com.greenfoxacademy.rest.services;
 
+import com.greenfoxacademy.rest.models.Appended;
 import com.greenfoxacademy.rest.models.DoubledNumber;
 import com.greenfoxacademy.rest.models.Greeting;
 import com.greenfoxacademy.rest.models.InputError;
@@ -29,5 +30,9 @@ public class ApplicationService {
         return greeting;
     }
 
-
+    public Appended appendAToString(String word){
+        Appended appended = new Appended();
+        appended.setAppended(word + "a");
+        return appended;
+    }
 }
