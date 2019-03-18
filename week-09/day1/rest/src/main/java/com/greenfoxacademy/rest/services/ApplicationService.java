@@ -1,9 +1,6 @@
 package com.greenfoxacademy.rest.services;
 
-import com.greenfoxacademy.rest.models.Appended;
-import com.greenfoxacademy.rest.models.DoubledNumber;
-import com.greenfoxacademy.rest.models.Greeting;
-import com.greenfoxacademy.rest.models.InputError;
+import com.greenfoxacademy.rest.models.*;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -34,5 +31,25 @@ public class ApplicationService {
         Appended appended = new Appended();
         appended.setAppended(word + "a");
         return appended;
+    }
+
+    public UntilResult sumResult(Until until){
+        UntilResult sumResult = new UntilResult();
+        int sum = 0;
+        for (int i = until.getUntil(); i > 0; i--) {
+            sum += i;
+        }
+        sumResult.setResult(sum);
+        return sumResult;
+    }
+
+    public UntilResult factorResult(Until until){
+        UntilResult factorResult = new UntilResult();
+        int factor = 1;
+        for (int i = until.getUntil(); i > 0; i--) {
+            factor *= i;
+        }
+        factorResult.setResult(factor);
+        return factorResult;
     }
 }

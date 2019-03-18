@@ -1,12 +1,11 @@
 package com.greenfoxacademy.rest.controllers;
 
 import com.greenfoxacademy.rest.models.Appended;
+import com.greenfoxacademy.rest.models.Until;
+import com.greenfoxacademy.rest.models.UntilResult;
 import com.greenfoxacademy.rest.services.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ApplicationController {
@@ -45,5 +44,22 @@ public class ApplicationController {
         return service.appendAToString(appendable);
     }
 
-    
+    @PostMapping("/dountil/sum")
+    public Object showSumResult(@RequestBody Until until){
+        if(until.getUntil() == null){
+            return service.showErrorMessage("Please provide a number!");
+        } else{
+            return service.sumResult(until);
+        }
+    }
+
+    @PostMapping("/dountil/factor")
+    public Object showFactorResult(@RequestBody Until until){
+        if(until.getUntil() == null){
+            return service.showErrorMessage("Please provide a number!");
+        } else{
+            return service.factorResult(until);
+        }
+    }
+
 }
