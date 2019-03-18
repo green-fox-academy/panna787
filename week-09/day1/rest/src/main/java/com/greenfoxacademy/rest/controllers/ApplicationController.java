@@ -21,7 +21,7 @@ public class ApplicationController {
        if(input != null) {
            return service.doubleNumber(input);
        } else {
-           return service.noInputError();
+           return service.showErrorMessage("Please provide an input!");
        }
     }
 }

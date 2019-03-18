@@ -4,9 +4,7 @@ public class InputError {
 
     private String error;
 
-    public InputError(){
-        this.error = "Please provide an input!";
-    }
+    public InputError(){}
 
     public String getError() {
         return error;

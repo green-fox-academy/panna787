@@ -16,8 +16,10 @@ public class ApplicationService {
         return number;
     }
 
-    public InputError noInputError(){
-        return new InputError();
+    public InputError showErrorMessage(String message){
+        InputError error = new InputError();
+        error.setError(message);
+        return error;
     }
 
 
