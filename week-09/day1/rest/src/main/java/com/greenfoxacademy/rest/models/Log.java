@@ -1,9 +1,13 @@
 package com.greenfoxacademy.rest.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.security.Timestamp;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -24,6 +28,7 @@ public class Log {
     }
 
     public Log() {
+        this.createdAt = new Date();
     }
 
     public Long getId() {
