@@ -2,6 +2,7 @@ package com.greenfoxacademy.rest;
 
 import com.greenfoxacademy.rest.controllers.ApplicationController;
 import com.greenfoxacademy.rest.models.DoubledNumber;
+import com.greenfoxacademy.rest.models.Greeting;
 import com.greenfoxacademy.rest.services.ApplicationService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +17,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(ApplicationController.class)
@@ -28,7 +30,7 @@ public class ApplicationControllerUnitTest {
     ApplicationService service;
 
     @Test
-    public void getDoubledNumber_ReturnsDoubledNumber_IsOk() throws Exception{
+    public void getDoubledNumber_ReceivesInput_ReturnsDoubledNumber_IsOk() throws Exception{
         when(service.doubleNumber(eq(5)))
                 .thenReturn(new DoubledNumber(5, 10));
 
@@ -36,8 +38,20 @@ public class ApplicationControllerUnitTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.received")
                 .value(5))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.result")
-                        .value(10));
+                .value(10))
+                .andExpect(status().isOk());
 
+    }
+
+    @Test
+    public void showGreeting_ReceivesNameAndTitle_ReturnsGreeting_IsOk() throws Exception {
+        when(service.showGreeting("Petike", "student"))
+                .thenReturn(new Greeting("Oh, hi there Petike, my dear student!"));
+
+        mockMvc.perform(get("/greeter?name=Petike&title=student"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.welcome_message")
+                .value("Oh, hi there Petike, my dear student!"))
+                .andExpect(status().isOk());
     }
 
 

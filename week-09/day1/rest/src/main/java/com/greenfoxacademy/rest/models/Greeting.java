@@ -8,6 +8,10 @@ public class Greeting {
 
     }
 
+    public Greeting(String welcome_message) {
+        this.welcome_message = welcome_message;
+    }
+
     public String getWelcome_message() {
         return welcome_message;
     }
