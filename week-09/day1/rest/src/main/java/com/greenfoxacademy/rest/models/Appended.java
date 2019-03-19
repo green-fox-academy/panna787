@@ -8,6 +8,10 @@ public class Appended {
 
     }
 
+    public Appended(String appended) {
+        this.appended = appended;
+    }
+
     public String getAppended() {
         return appended;
     }

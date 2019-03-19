@@ -1,6 +1,7 @@
 package com.greenfoxacademy.rest;
 
 import com.greenfoxacademy.rest.controllers.ApplicationController;
+import com.greenfoxacademy.rest.models.Appended;
 import com.greenfoxacademy.rest.models.DoubledNumber;
 import com.greenfoxacademy.rest.models.Greeting;
 import com.greenfoxacademy.rest.services.ApplicationService;
@@ -54,5 +55,14 @@ public class ApplicationControllerUnitTest {
                 .andExpect(status().isOk());
     }
 
+    @Test
+    public void showAppendedWord_ReturnsAppended_IsOk() throws Exception {
+        when(service.appendAToString("macsk"))
+                .thenReturn(new Appended("macska"));
 
+        mockMvc.perform(get("/appenda/macsk"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.appended")
+                .value("macska"))
+                .andExpect(status().isOk());
+    }
 }
