@@ -20,6 +20,7 @@ public class ApplicationController {
 
     @RequestMapping("/doubling")
     public Object getDoubledNumber(@RequestParam(required = false) Integer input){
+       service.addNewLog("/doubling", "input="+input);
        if(input != null) {
            return service.doubleNumber(input);
        } else {
@@ -29,6 +30,7 @@ public class ApplicationController {
 
     @RequestMapping("/greeter")
     public Object showGreeting(@RequestParam(required = false, value = "name") String name, @RequestParam(required = false, value = "title") String title){
+        service.addNewLog("/greeter", "name=" + name + ", title=" + title);
         if(name != null && title != null){
             return service.showGreeting(name, title);
         } else if(name == null && title != null){
@@ -42,27 +44,23 @@ public class ApplicationController {
 
     @RequestMapping("/appenda/{appendable}")
     public Appended showAppendedWord(@PathVariable("appendable") String appendable){
+        service.addNewLog("/appenda/{appendable}", "appendable=" + appendable);
         return service.appendAToString(appendable);
     }
 
-    @PostMapping("/dountil/sum")
-    public Object showSumResult(@RequestBody Until until){
+    @PostMapping("/dountil/{action}")
+    public Object showSumResult(@PathVariable("action") String action, @RequestBody Until until){
         if(until.getUntil() == null){
             return service.showErrorMessage("Please provide a number!");
-        } else{
+        } else if (action.equals("sum")){
             return service.sumResult(until);
-        }
-    }
-
-    @PostMapping("/dountil/factor")
-    public Object showFactorResult(@RequestBody Until until){
-        if(until.getUntil() == null){
-            return service.showErrorMessage("Please provide a number!");
-        } else{
+        } else if (action.equals("factor")){
             return service.factorResult(until);
+        } else {
+            return service.showErrorMessage("Please provide a valid action");
         }
     }
-
+    
     @PostMapping("/arrays")
     public Object showArrayCalculationResult(@RequestBody ArrayHandler arrayHandler){
         if(arrayHandler.getWhat() != null && arrayHandler.getNumbers() != null){

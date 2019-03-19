@@ -92,7 +92,7 @@ public class ApplicationService {
         applicationRepository.save(newLog);
     }
 
-    public LogEntries getAllEntries(){
+    public LogEntries getLogEntries(){
         LogEntries logEntries = new LogEntries();
         applicationRepository.findAll().forEach(logEntries.getEntries()::add);
         logEntries.setEntry_count(logEntries.getEntries().size());
