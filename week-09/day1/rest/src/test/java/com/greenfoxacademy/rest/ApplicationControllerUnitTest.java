@@ -1,10 +1,7 @@
 package com.greenfoxacademy.rest;
 
 import com.greenfoxacademy.rest.controllers.ApplicationController;
-import com.greenfoxacademy.rest.models.Appended;
-import com.greenfoxacademy.rest.models.DoubledNumber;
-import com.greenfoxacademy.rest.models.Greeting;
-import com.greenfoxacademy.rest.models.InputError;
+import com.greenfoxacademy.rest.models.*;
 import com.greenfoxacademy.rest.services.ApplicationService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,8 +14,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.notNull;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -75,5 +74,17 @@ public class ApplicationControllerUnitTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.appended")
                 .value("macska"))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    public void showCalculationResult_ReceivesUntilObject_WithSumAction_ReturnsSumResultObject() throws Exception {
+        when(service.sumResult((Until)notNull()))
+                .thenReturn(new UntilResult(15));
+
+        mockMvc.perform(post("/dountil/sum")
+        .contentType(MediaType.APPLICATION_JSON)
+        .content("{\"until\":5}"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.result")
+                .value(15));
     }
 }

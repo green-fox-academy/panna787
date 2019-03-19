@@ -7,6 +7,10 @@ public class UntilResult {
     public UntilResult() {
     }
 
+    public UntilResult(int result) {
+        this.result = result;
+    }
+
     public int getResult() {
         return result;
     }

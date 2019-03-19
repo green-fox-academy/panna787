@@ -1,5 +1,7 @@
 package com.greenfoxacademy.rest.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.security.Timestamp;
 import java.util.Date;
@@ -21,6 +23,9 @@ public class Log {
         this.data = data;
     }
 
+    public Log() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -29,6 +34,7 @@ public class Log {
         this.id = id;
     }
 
+    @JsonIgnore
     public Date getCreatedAt() {
         return createdAt;
     }

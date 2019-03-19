@@ -46,7 +46,7 @@ public class ApplicationController {
     }
 
     @PostMapping("/dountil/{action}")
-    public Object showSumResult(@PathVariable("action") String action, @RequestBody Until until){
+    public Object showCalculationResult(@PathVariable("action") String action, @RequestBody Until until){
         service.addNewLog("/dountil", "action=" + action);
         if(until.getUntil() == null){
             return service.showErrorMessage("Please provide a number!");
@@ -61,7 +61,7 @@ public class ApplicationController {
 
     @PostMapping("/arrays")
     public Object showArrayCalculationResult(@RequestBody ArrayHandler arrayHandler){
-        service.addNewLog("/arrays", "ArrayHandler=" + arrayHandler.toString());
+        service.addNewLog("/arrays", "arrayHandler=" + arrayHandler.toString());
         if(arrayHandler.getWhat() != null && arrayHandler.getNumbers() != null){
             return service.calculateResult(arrayHandler);
         } else {
