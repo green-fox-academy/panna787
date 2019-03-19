@@ -13,6 +13,11 @@ public class DoubledNumber {
         this.received = received;
     }
 
+    public DoubledNumber(int received, int result) {
+        this.received = received;
+        this.result = result;
+    }
+
     public int getReceived() {
         return received;
     }
