@@ -1,9 +1,6 @@
 package com.greenfoxacademy.rest.controllers;
 
-import com.greenfoxacademy.rest.models.Appended;
-import com.greenfoxacademy.rest.models.ArrayHandler;
-import com.greenfoxacademy.rest.models.Until;
-import com.greenfoxacademy.rest.models.UntilResult;
+import com.greenfoxacademy.rest.models.*;
 import com.greenfoxacademy.rest.services.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -50,6 +47,7 @@ public class ApplicationController {
 
     @PostMapping("/dountil/{action}")
     public Object showSumResult(@PathVariable("action") String action, @RequestBody Until until){
+        service.addNewLog("/dountil", "action=" + action);
         if(until.getUntil() == null){
             return service.showErrorMessage("Please provide a number!");
         } else if (action.equals("sum")){
@@ -60,9 +58,10 @@ public class ApplicationController {
             return service.showErrorMessage("Please provide a valid action");
         }
     }
-    
+
     @PostMapping("/arrays")
     public Object showArrayCalculationResult(@RequestBody ArrayHandler arrayHandler){
+        service.addNewLog("/arrays", "ArrayHandler=" + arrayHandler.toString());
         if(arrayHandler.getWhat() != null && arrayHandler.getNumbers() != null){
             return service.calculateResult(arrayHandler);
         } else {
@@ -70,4 +69,8 @@ public class ApplicationController {
         }
     }
 
+    @GetMapping("/log")
+    public LogEntries showLogEntries(){
+        return service.getLogEntries();
+    }
 }
