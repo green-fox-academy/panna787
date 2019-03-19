@@ -6,6 +6,10 @@ public class InputError {
 
     public InputError(){}
 
+    public InputError(String error) {
+        this.error = error;
+    }
+
     public String getError() {
         return error;
     }

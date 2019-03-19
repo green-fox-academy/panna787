@@ -4,6 +4,7 @@ import com.greenfoxacademy.rest.controllers.ApplicationController;
 import com.greenfoxacademy.rest.models.Appended;
 import com.greenfoxacademy.rest.models.DoubledNumber;
 import com.greenfoxacademy.rest.models.Greeting;
+import com.greenfoxacademy.rest.models.InputError;
 import com.greenfoxacademy.rest.services.ApplicationService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,7 +42,17 @@ public class ApplicationControllerUnitTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.result")
                 .value(10))
                 .andExpect(status().isOk());
+    }
 
+    @Test
+    public void showErrorMessage_AtDoubledNumber_WithoutInput_ReturnsErrorMessage() throws Exception {
+        when(service.showErrorMessage("Please provide an input!"))
+                .thenReturn(new InputError("Please provide an input!"));
+
+        mockMvc.perform(get("/doubling"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.error")
+                .value("Please provide an input!"))
+                .andExpect(status().isOk());
     }
 
     @Test
