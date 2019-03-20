@@ -57,4 +57,12 @@ public class MainController {
     public String showNutritionStore(){
         return "nutritionStore";
     }
+
+    @RequestMapping(value = "/nutritionStore", method= RequestMethod.POST)
+    public String changeFoxFoodAndDrink(@ModelAttribute(name="fox") Fox fox, String food, String drink){
+
+        fox.setFood(food);
+        fox.setDrink(drink);
+        return "redirect:/?name=" + fox.getName();
+    }
 }
