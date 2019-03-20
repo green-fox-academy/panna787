@@ -1,6 +1,8 @@
 package com.greenfoxacademy.foxclub.controllers;
 
 import com.greenfoxacademy.foxclub.models.Fox;
+import com.greenfoxacademy.foxclub.services.FoxService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,28 +17,19 @@ import java.util.List;
 @Controller
 public class MainController {
 
-    private List<Fox> foxes = new ArrayList<>();
+    @Autowired
+    private FoxService service;
 
     public MainController(){
-        foxes.add(new Fox("fox1", "food1", "drink1"));
-        foxes.add(new Fox("fox2", "food2", "drink2"));
-        foxes.add(new Fox("fox3", "food3", "drink3"));
+
     }
 
     @RequestMapping("/")
     public String main(Model model,@RequestParam(name="name") String name){
-        Fox fox = null;
-        for (Fox f: foxes) {
-            if(name.equals(f.getName())){
-                fox = f;
-            }
-        }
-        if(fox != null){
-            model.addAttribute("fox", fox);
+        if(service.findFoxByName(name) != null){
+            model.addAttribute("fox", service.findFoxByName(name));
             return "index";
-
         } else {
-            foxes.add(new Fox(name));
             return "login";
         }
     }
@@ -54,7 +47,7 @@ public class MainController {
     }
 
     @RequestMapping(value = "/nutritionStore", method= RequestMethod.GET)
-    public String showNutritionStore(){
+    public String showNutritionStore(@RequestParam String name){
         return "nutritionStore";
     }
 
