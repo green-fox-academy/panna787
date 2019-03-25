@@ -53,8 +53,13 @@ public class MainController {
 
     @PostMapping("/register")
     public String addNewUser(@ModelAttribute("user") User user){
-        userService.addNewUser(user);
-        return "redirect:/?name=" + user.getFox().getName();
+        if(userService.isRegistrationSuccessful(user)){
+            userService.addNewUser(user);
+            foxService.addNewFox(user.getFox());
+            return "redirect:/?name=" + user.getFox().getName();
+        } else {
+            return "redirect:/register";
+        }
     }
 
 }

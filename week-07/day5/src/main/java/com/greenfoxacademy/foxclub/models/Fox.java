@@ -11,7 +11,7 @@ public class Fox {
     private String drink = "lemonade";
 
     public Fox(){
-        this.name = "Default Fox";
+        this.name = "Default";
         this.listOfTricks = new ArrayList<>();
     }
 

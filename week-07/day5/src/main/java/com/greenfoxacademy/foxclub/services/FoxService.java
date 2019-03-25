@@ -39,4 +39,8 @@ public class FoxService {
     public void setCurrentFox(Fox currentFox) {
         this.currentFox = currentFox;
     }
+
+    public void addNewFox(Fox fox){
+        foxes.add(fox);
+    }
 }

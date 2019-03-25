@@ -18,7 +18,17 @@ public class UserService {
     }
 
     public boolean checkIfUserExist(User user){
-        return users.stream().filter(u -> u.getUserName().equals(user.getUserName())) != null;
+        if(users.size() == 0){
+            return false;
+        } else {
+            boolean userExist = false;
+            for (User u: users) {
+                if(u.getUserName().equals(user.getUserName())){
+                    userExist = true;
+                }
+            }
+            return userExist;
+        }
     }
 
     public boolean checkIfPasswordsMatch(User user){
