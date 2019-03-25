@@ -17,17 +17,20 @@ import java.util.List;
 @Controller
 public class MainController {
 
-    @Autowired
     private FoxService service;
+    private FoxController controller;
 
-    public MainController(){
-
+    @Autowired
+    public MainController(FoxService service, FoxController controller){
+        this.service = service;
+        this.controller = controller;
     }
 
     @RequestMapping("/")
     public String main(Model model,@RequestParam(name="name") String name){
         if(service.findFoxByName(name) != null){
             model.addAttribute("fox", service.findFoxByName(name));
+            controller.setCurrentFox(service.findFoxByName(name));
             return "index";
         } else {
             return "login";
@@ -46,16 +49,4 @@ public class MainController {
         return "redirect:/?name=" + name;
     }
 
-    @RequestMapping(value = "/nutritionStore", method= RequestMethod.GET)
-    public String showNutritionStore(@RequestParam String name){
-        return "nutritionStore";
-    }
-
-    @RequestMapping(value = "/nutritionStore", method= RequestMethod.POST)
-    public String changeFoxFoodAndDrink(@ModelAttribute(name="fox") Fox fox, String food, String drink){
-
-        fox.setFood(food);
-        fox.setDrink(drink);
-        return "redirect:/?name=" + fox.getName();
-    }
 }
