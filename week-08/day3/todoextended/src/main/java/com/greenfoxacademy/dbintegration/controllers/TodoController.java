@@ -2,6 +2,7 @@ package com.greenfoxacademy.dbintegration.controllers;
 
 import com.greenfoxacademy.dbintegration.models.Todo;
 import com.greenfoxacademy.dbintegration.repository.TodoRepository;
+import com.greenfoxacademy.dbintegration.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,16 +16,16 @@ import java.util.stream.Collectors;
 @RequestMapping("/todo")
 public class TodoController {
 
-    private TodoRepository todoRepository;
+    private TodoService service;
 
     @Autowired
-    public TodoController(TodoRepository todoRepository) {
-        this.todoRepository = todoRepository;
+    public TodoController(TodoService service) {
+        this.service = service;
     }
 
     @GetMapping(value = {"/", "/list"})
     public String list(Model model) {
-        model.addAttribute("todos", todoRepository.findAll());
+        model.addAttribute("todos", service.getAllTodos());
         model.addAttribute("todo", new Todo());
         return "todolist";
     }
@@ -48,19 +49,19 @@ public class TodoController {
 
     @PostMapping("/add")
     public String addNewTodo(@ModelAttribute(name = "todo") Todo todo) {
-        todoRepository.save(todo);
+        service.addNewTodo(todo);
         return "redirect:/todo/list";
     }
 
     @RequestMapping(value = "/{id}/delete", method = RequestMethod.GET)
     public String deleteTodo(@PathVariable("id") long id) {
-        todoRepository.deleteById(id);
+        service.deleteTodo(id);
         return "redirect:/todo/list";
     }
 
     @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
     public String updateTodoForm(Model model, @PathVariable("id") long id) {
-        todoRepository.findById(id).get().setDone(true);
+        service.updateTodoToDone(id);
         //model.addAttribute("todo", todoRepository.findById(id).get());
         return "redirect:/todo/list";
     }
