@@ -6,16 +6,18 @@ import java.util.List;
 public class Fox {
 
     private String name;
-    private List<String> listOfTricks = new ArrayList<>();
+    private List<String> listOfTricks;
     private String food = "pizza";
     private String drink = "lemonade";
 
     public Fox(){
-
+        this.name = "Default Fox";
+        this.listOfTricks = new ArrayList<>();
     }
 
     public Fox(String name){
         this.name = name;
+        this.listOfTricks = new ArrayList<>();
 
     }
 
@@ -23,6 +25,7 @@ public class Fox {
         this.name = name;
         this.food = food;
         this.drink = drink;
+        this.listOfTricks = new ArrayList<>();
     }
 
     public String getName() {

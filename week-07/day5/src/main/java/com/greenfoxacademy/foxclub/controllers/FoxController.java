@@ -12,11 +12,10 @@ public class FoxController {
 
     @Autowired
     private FoxService service;
-    private Fox currentFox;
 
     @RequestMapping(value = "/nutritionStore", method= RequestMethod.GET)
     public String showNutritionStore(@RequestParam String name, Model model){
-        model.addAttribute("currentFox", this.currentFox);
+        model.addAttribute("currentFox", service.getCurrentFox());
         return "nutritionStore";
     }
 
@@ -29,7 +28,7 @@ public class FoxController {
 
     @GetMapping("/trickCenter")
     public String showTrickCenter(@RequestParam String name, Model model){
-        model.addAttribute("currentFox", this.currentFox);
+        model.addAttribute("currentFox", service.getCurrentFox());
         return "trickcenter";
     }
 
@@ -37,14 +36,5 @@ public class FoxController {
     public String learnTricks(@RequestParam String name, String trick){
         service.addNewTrick(name, trick);
         return "redirect:/?name=" + name;
-    }
-
-
-    public Fox getCurrentFox() {
-        return currentFox;
-    }
-
-    public void setCurrentFox(Fox currentFox) {
-        this.currentFox = currentFox;
     }
 }

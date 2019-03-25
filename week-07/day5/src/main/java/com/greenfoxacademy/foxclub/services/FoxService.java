@@ -10,6 +10,7 @@ import java.util.List;
 public class FoxService {
 
     private List<Fox> foxes = new ArrayList<>();
+    private Fox currentFox;
 
     public FoxService(){
         foxes.add(new Fox("fox1", "food1", "drink1"));
@@ -29,5 +30,13 @@ public class FoxService {
 
     public void addNewTrick(String name, String trick){
         findFoxByName(name).getListOfTricks().add(trick);
+    }
+
+    public Fox getCurrentFox() {
+        return currentFox;
+    }
+
+    public void setCurrentFox(Fox currentFox) {
+        this.currentFox = currentFox;
     }
 }
