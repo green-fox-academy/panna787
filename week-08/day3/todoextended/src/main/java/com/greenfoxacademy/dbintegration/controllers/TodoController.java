@@ -73,7 +73,7 @@ public class TodoController {
 
   @RequestMapping(value = "/search", method = RequestMethod.POST)
   public String searchInTodos(Model model, @RequestParam("search") String search){
-      
+
       return "redirect:/todo/list";
   }
 }

@@ -13,14 +13,14 @@ public class Assignee {
     private Long id;
     private String name;
     private String email;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "assignee")
     private List<Todo> todos;
 
     public Assignee(){
         this.todos = new ArrayList<>();
     }
 
-    public Assignee(String name, String email, List<Todo> todos) {
+    public Assignee(String name, String email) {
         this.name = name;
         this.email = email;
         this.todos = todos = new ArrayList<>();

@@ -12,7 +12,7 @@ public class Todo {
     private String title;
     private boolean urgent;
     private boolean done;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Assignee assignee;
 
     public Todo(){
