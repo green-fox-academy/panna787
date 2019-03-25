@@ -10,12 +10,12 @@
 <body>
     <ul>
         <a href="/login"> <li> Information </li> </a>
-        <a href="/nutritionStore"> <li> Nutrition Store </li> </a>
-        <a href="/trickCenter"><li> Trick Center </li> </a>
-        <a href="/actionHistory"> <li> Action History</li> </a>
+        <a th:href="@{'/nutritionStore?name=' + ${currentFox.name}}"> <li> Nutrition Store </li> </a>
+        <a th:href="@{'/trickCenter?name=' + ${currentFox.name}}"><li> Trick Center </li> </a>
+        <a th:href="@{'/actionHistory?name=' + ${currentFox.name}}"> <li> Action History</li> </a>
     </ul>
 
-<form>
+<form action="#" th:action="@{'/nutritionStore?name=' + ${currentFox.name}}" method="post">
     <label>Food</label>
     <select name="food">
         <option value="chocolate">Chocolate</option>

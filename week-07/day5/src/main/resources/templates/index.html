@@ -12,8 +12,8 @@
     <ul>
         <a href="#"> <li> Information </li> </a>
         <a th:href="@{'/nutritionStore?name=' + ${fox.name}}"> <li> Nutrition Store </li> </a>
-        <a href="/trickCenter"><li> Trick Center </li> </a>
-        <a href="/actionHistory"> <li> Action History</li> </a>
+        <a th:href="@{'/trickCenter?name=' + ${fox.name}}"><li> Trick Center </li> </a>
+        <a th:href="@{'/actionHistory?name=' + ${fox.name}}"> <li> Action History</li> </a>
     </ul>
 
     <br>

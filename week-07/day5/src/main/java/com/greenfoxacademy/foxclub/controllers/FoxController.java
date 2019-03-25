@@ -1,16 +1,17 @@
 package com.greenfoxacademy.foxclub.controllers;
 
 import com.greenfoxacademy.foxclub.models.Fox;
+import com.greenfoxacademy.foxclub.services.FoxService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class FoxController {
 
+    @Autowired
+    private FoxService service;
     private Fox currentFox;
 
     @RequestMapping(value = "/nutritionStore", method= RequestMethod.GET)
@@ -20,12 +21,12 @@ public class FoxController {
     }
 
     @RequestMapping(value = "/nutritionStore", method= RequestMethod.POST)
-    public String changeFoxFoodAndDrink(@ModelAttribute(name="fox") Fox fox, String food, String drink){
-
-        fox.setFood(food);
-        fox.setDrink(drink);
-        return "redirect:/?name=" + fox.getName();
+    public String changeFoxFoodAndDrink(@RequestParam String name, @ModelAttribute(name="fox") Fox fox, String food, String drink){
+        service.findFoxByName(name).setFood(food);
+        service.findFoxByName(name).setDrink(drink);
+        return "redirect:/?name=" + name;
     }
+        
 
     public Fox getCurrentFox() {
         return currentFox;
