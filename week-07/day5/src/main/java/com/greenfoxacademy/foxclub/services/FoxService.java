@@ -26,4 +26,8 @@ public class FoxService {
         }
         return fox;
     }
+
+    public void addNewTrick(String name, String trick){
+        findFoxByName(name).getListOfTricks().add(trick);
+    }
 }

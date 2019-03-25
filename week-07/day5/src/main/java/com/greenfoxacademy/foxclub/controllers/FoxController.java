@@ -21,12 +21,24 @@ public class FoxController {
     }
 
     @RequestMapping(value = "/nutritionStore", method= RequestMethod.POST)
-    public String changeFoxFoodAndDrink(@RequestParam String name, @ModelAttribute(name="fox") Fox fox, String food, String drink){
+    public String changeFoxFoodAndDrink(@RequestParam String name, String food, String drink){
         service.findFoxByName(name).setFood(food);
         service.findFoxByName(name).setDrink(drink);
         return "redirect:/?name=" + name;
     }
-        
+
+    @GetMapping("/trickCenter")
+    public String showTrickCenter(@RequestParam String name, Model model){
+        model.addAttribute("currentFox", this.currentFox);
+        return "trickcenter";
+    }
+
+    @PostMapping("/trickCenter")
+    public String learnTricks(@RequestParam String name, String trick){
+        service.addNewTrick(name, trick);
+        return "redirect:/?name=" + name;
+    }
+
 
     public Fox getCurrentFox() {
         return currentFox;
