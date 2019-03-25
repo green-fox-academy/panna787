@@ -12,7 +12,7 @@
     <a href="/login"> <li> Information </li> </a>
     <a th:href="@{'/nutritionStore?name=' + ${currentFox.name}}"> <li> Nutrition Store </li> </a>
     <a th:href="@{'/trickCenter?name=' + ${currentFox.name}}"><li> Trick Center </li> </a>
-    <a th:href="@{'/actionHistory?name=' + ${currentFox.name}}"> <li> Action History</li> </a>
+    <a href="#"> <li> Action History</li> </a>
 </ul>
 
 <form action="#" th:action="@{'/trickCenter?name=' + ${currentFox.name}}" method="post">
