@@ -20,6 +20,10 @@ public class User {
         this.fox = new Fox();
     }
 
+    public String showRegistrationError(){
+        return "The user name is already exists!";
+    }
+
     public String getUserName() {
         return userName;
     }

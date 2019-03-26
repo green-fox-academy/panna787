@@ -46,8 +46,11 @@ public class MainController {
     }
 
     @GetMapping("/register")
-    public String showRegisterPage(Model model){
-        model.addAttribute("user", new User());
+    public String showRegisterPage(@RequestParam(name="success", required = false) boolean success,  Model model, @ModelAttribute("user") User user){
+        if(userService.getUser() != null) {
+            model.addAttribute("userExists", success);
+            model.addAttribute("regError", user.showRegistrationError());
+        }
         return "register";
     }
 
@@ -58,7 +61,7 @@ public class MainController {
             foxService.addNewFox(user.getFox());
             return "redirect:/?name=" + user.getFox().getName();
         } else {
-            return "redirect:/register";
+            return "redirect:/register?success=" + userService.checkIfUserExist(user);
         }
     }
 

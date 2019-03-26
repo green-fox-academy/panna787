@@ -16,6 +16,10 @@
     <a href="/actionHistory"> <li> Action History</li> </a>
 </ul>
 <br>
+
+<p th:text="${userExists} ? ${regError} : ''" style="color: red"></p>
+
+<br>
 <h1>Welcome to Programmer Fox Club!</h1>
 <p>Choose a username, and get your own pet!</p>
 <form action="#" th:object="${user}" th:action="@{/register}"  method="post">

@@ -11,6 +11,7 @@ import java.util.List;
 public class UserService {
 
     private User user;
+    private boolean isUserSaved;
     private List<User> users;
 
     public UserService(){
@@ -18,17 +19,13 @@ public class UserService {
     }
 
     public boolean checkIfUserExist(User user){
-        if(users.size() == 0){
-            return false;
-        } else {
-            boolean userExist = false;
+        boolean userExist = false;
             for (User u: users) {
                 if(u.getUserName().equals(user.getUserName())){
                     userExist = true;
                 }
             }
-            return userExist;
-        }
+        return userExist;
     }
 
     public boolean checkIfPasswordsMatch(User user){
@@ -44,7 +41,8 @@ public class UserService {
     }
 
     public void addNewUser(User user){
-        users.add(user);
+            this.users.add(user);
+            this.user = user;
     }
 
     public User getUser() {
@@ -53,5 +51,13 @@ public class UserService {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public boolean isUserSaved() {
+        return isUserSaved;
+    }
+
+    public void setUserSaved(boolean userSaved) {
+        isUserSaved = userSaved;
     }
 }
