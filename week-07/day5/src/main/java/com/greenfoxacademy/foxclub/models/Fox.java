@@ -1,14 +1,20 @@
 package com.greenfoxacademy.foxclub.models;
 
+import javax.jws.soap.SOAPBinding;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Fox {
 
+    @Id
     private String name;
     private List<String> listOfTricks;
     private String food = "pizza";
     private String drink = "lemonade";
+    @OneToOne
+    private User user;
 
     public Fox(){
         this.name = "Default";

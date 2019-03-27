@@ -13,9 +13,7 @@ public class FoxService {
     private Fox currentFox;
 
     public FoxService(){
-        foxes.add(new Fox("fox1", "food1", "drink1"));
-        foxes.add(new Fox("fox2", "food2", "drink2"));
-        foxes.add(new Fox("fox3", "food3", "drink3"));
+
     }
 
     public Fox findFoxByName(String name){

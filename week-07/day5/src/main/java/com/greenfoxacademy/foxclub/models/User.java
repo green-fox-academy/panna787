@@ -2,11 +2,18 @@ package com.greenfoxacademy.foxclub.models;
 
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
 public class User {
 
+    @Id
     private String userName;
     private String password;
     private String confirmPassword;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Fox fox;
 
     public User() {

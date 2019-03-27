@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private User user;
+    private User currentUser;
     private boolean isUserSaved;
     private List<User> users;
 
@@ -42,15 +42,15 @@ public class UserService {
 
     public void addNewUser(User user){
             this.users.add(user);
-            this.user = user;
+            this.currentUser = user;
     }
 
-    public User getUser() {
-        return user;
+    public User getCurrentUser() {
+        return currentUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
     }
 
     public boolean isUserSaved() {
