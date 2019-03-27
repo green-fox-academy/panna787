@@ -29,6 +29,7 @@ public class FoxController {
     public String changeFoxFoodAndDrink(@RequestParam(name="id") long id, String food, String drink){
         foxService.getCurrentFox().setFood(food);
         foxService.getCurrentFox().setDrink(drink);
+        foxService.addNewFox(foxService.getCurrentFox());
         return "redirect:/?id=" + id;
     }
 
