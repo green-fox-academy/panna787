@@ -17,16 +17,15 @@ public class MainController {
     private UserService userService;
 
     @Autowired
-    public MainController(FoxService service, UserService userService){
-        this.foxService = service;
+    public MainController(FoxService foxService, UserService userService){
+        this.foxService = foxService;
         this.userService = userService;
     }
 
     @RequestMapping("/")
-    public String main(Model model,@RequestParam(name="name") String name){
-        if(foxService.findFoxByName(name) != null){
-            model.addAttribute("fox", foxService.findFoxByName(name));
-            foxService.setCurrentFox(foxService.findFoxByName(name));
+    public String main(Model model, @RequestParam(name="id") long id){
+        if(foxService.findFoxById(id) != null){
+            model.addAttribute("fox", foxService.findFoxById(id));
             return "index";
         } else {
             return "login";
@@ -40,16 +39,17 @@ public class MainController {
     }
 
     @RequestMapping(value = "/login", method= RequestMethod.POST)
-    public String login(@ModelAttribute(name="fox") Fox fox, @RequestParam String name){
+    public String login(@ModelAttribute(name="fox") Fox fox, @RequestParam long id){
 
-        return "redirect:/?name=" + name;
+        return "redirect:/?id=" + id;
     }
 
     @GetMapping("/register")
-    public String showRegisterPage(@RequestParam(name="success", required = false) boolean success,  Model model, @ModelAttribute("user") User user){
+    public String showRegisterPage(@RequestParam(name="success", required = false) boolean success,  Model model){
+        model.addAttribute("user", new User());
         if(userService.getCurrentUser() != null) {
-            model.addAttribute("userExists", success);
-            model.addAttribute("regError", user.showRegistrationError());
+            model.addAttribute("userExists", !success);
+            model.addAttribute("regError", userService.getCurrentUser().showRegistrationError());
         }
         return "register";
     }
@@ -58,9 +58,10 @@ public class MainController {
     public String addNewUser(@ModelAttribute("user") User user){
         if(userService.isRegistrationSuccessful(user)){
             userService.addNewUser(user);
-            return "redirect:/?name=" + user.getFox().getName();
+            foxService.setCurrentFox(user.getFox());
+            return "redirect:/?id=" + user.getFox().getId();
         } else {
-            return "redirect:/register?success=" + userService.checkIfUserExist(user);
+            return "redirect:/register?success=" + !userService.checkIfUserExist(user);
         }
     }
 

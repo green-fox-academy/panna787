@@ -12,7 +12,7 @@ public class Fox {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, targetEntity = Trick.class)
     private List<Trick> listOfTricks;
     private String food;
     private String drink;
@@ -70,5 +70,13 @@ public class Fox {
 
     public void setDrink(String drink) {
         this.drink = drink;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

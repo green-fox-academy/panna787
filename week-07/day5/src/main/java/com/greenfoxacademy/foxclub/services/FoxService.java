@@ -2,6 +2,9 @@ package com.greenfoxacademy.foxclub.services;
 
 import com.greenfoxacademy.foxclub.models.Fox;
 import com.greenfoxacademy.foxclub.models.Trick;
+import com.greenfoxacademy.foxclub.repositories.FoxRepository;
+import com.greenfoxacademy.foxclub.repositories.TrickRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,25 +13,28 @@ import java.util.List;
 @Service
 public class FoxService {
 
-    private List<Fox> foxes = new ArrayList<>();
+    private FoxRepository repository;
+    private TrickRepository trickRepository;
     private Fox currentFox;
 
-    public FoxService(){
+    @Autowired
+    public FoxService(FoxRepository repository, TrickRepository trickRepository){
+        this.repository = repository;
+        this.trickRepository = trickRepository;
+        trickRepository.save(new Trick("hunt"));
+        trickRepository.save(new Trick("learn HTML"));
+        trickRepository.save(new Trick("save the world"));
+        trickRepository.save(new Trick("bake cookies"));
+    }
+
+    public Fox findFoxById(long id){
+        return repository.findById(id).get();
 
     }
 
-    public Fox findFoxByName(String name){
-        Fox fox = null;
-        for (Fox f: foxes) {
-            if(name.equals(f.getName())) {
-                fox = f;
-            }
-        }
-        return fox;
-    }
-
-    public void addNewTrick(String name, Trick trick){
-        findFoxByName(name).getListOfTricks().add(trick);
+    public void addNewTrick(long id, String trick){
+        findFoxById(id).getListOfTricks().add(trickRepository.findByDescription(trick));
+        repository.save(findFoxById(id));
     }
 
     public Fox getCurrentFox() {
@@ -40,6 +46,7 @@ public class FoxService {
     }
 
     public void addNewFox(Fox fox){
-        foxes.add(fox);
+        repository.save(fox);
     }
+
 }

@@ -11,8 +11,8 @@
 
     <ul>
         <a href="#"> <li> Information </li> </a>
-        <a th:href="@{'/nutritionStore?name=' + ${fox.name}}"> <li> Nutrition Store </li> </a>
-        <a th:href="@{'/trickCenter?name=' + ${fox.name}}"><li> Trick Center </li> </a>
+        <a th:href="@{'/nutritionStore?id=' + ${fox.id}}"> <li> Nutrition Store </li> </a>
+        <a th:href="@{'/trickCenter?id=' + ${fox.id}}"><li> Trick Center </li> </a>
         <a href="#"> <li> Action History</li> </a>
     </ul>
 
@@ -31,7 +31,7 @@
             You know no tricks yet. Go and learn some.
         </p>
         <ul th:unless="*{listOfTricks.size()==0}" th:each="trick: *{listOfTricks}">
-            <li th:text="${trick}"></li>
+            <li th:text="${trick.description}"></li>
         </ul>
     </div>
 

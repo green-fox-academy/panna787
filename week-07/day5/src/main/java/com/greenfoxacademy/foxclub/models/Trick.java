@@ -1,6 +1,7 @@
 package com.greenfoxacademy.foxclub.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Trick {
@@ -9,8 +10,8 @@ public class Trick {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String description;
-    @ManyToOne
-    private Fox fox;
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "listOfTricks")
+    private List<Fox> foxes;
 
     public Trick() {
     }
@@ -33,18 +34,5 @@ public class Trick {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Fox getFox() {
-        return fox;
-    }
-
-    public void setFox(Fox fox) {
-        this.fox = fox;
-    }
-
-    @Override
-    public String toString() {
-        return description;
     }
 }

@@ -6,4 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.concurrent.ThreadPoolExecutor;
 
 public interface FoxRepository extends CrudRepository<Fox, Long> {
+
+    Fox findFoxByName(String name);
 }

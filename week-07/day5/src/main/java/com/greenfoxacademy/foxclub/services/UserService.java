@@ -1,6 +1,7 @@
 package com.greenfoxacademy.foxclub.services;
 
 import com.greenfoxacademy.foxclub.models.User;
+import com.greenfoxacademy.foxclub.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,21 +11,17 @@ import java.util.List;
 @Service
 public class UserService {
 
+    @Autowired
+    private UserRepository repository;
     private User currentUser;
     private boolean isUserSaved;
-    private List<User> users;
 
     public UserService(){
-        this.users = new ArrayList<>();
+
     }
 
     public boolean checkIfUserExist(User user){
-        boolean userExist = false;
-            for (User u: users) {
-                if(u.getUserName().equals(user.getUserName())){
-                    userExist = true;
-                }
-            }
+        boolean userExist = repository.findUserByUserName(user.getUserName()) != null;
         return userExist;
     }
 
@@ -41,7 +38,7 @@ public class UserService {
     }
 
     public void addNewUser(User user){
-            this.users.add(user);
+            repository.save(user);
             this.currentUser = user;
     }
 
