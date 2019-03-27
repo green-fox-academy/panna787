@@ -1,6 +1,7 @@
 package com.greenfoxacademy.foxclub.services;
 
 import com.greenfoxacademy.foxclub.models.Fox;
+import com.greenfoxacademy.foxclub.models.Trick;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class FoxService {
         return fox;
     }
 
-    public void addNewTrick(String name, String trick){
+    public void addNewTrick(String name, Trick trick){
         findFoxByName(name).getListOfTricks().add(trick);
     }
 

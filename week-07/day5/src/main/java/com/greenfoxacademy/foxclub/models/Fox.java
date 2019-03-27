@@ -9,11 +9,14 @@ import java.util.List;
 public class Fox {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String name;
-    private List<String> listOfTricks;
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Trick> listOfTricks;
     private String food = "pizza";
     private String drink = "lemonade";
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     private User user;
 
     public Fox(){
@@ -42,11 +45,11 @@ public class Fox {
         this.name = name;
     }
 
-    public List<String> getListOfTricks() {
+    public List<Trick> getListOfTricks() {
         return listOfTricks;
     }
 
-    public void setListOfTricks(List<String> listOfTricks) {
+    public void setListOfTricks(List<Trick> listOfTricks) {
         this.listOfTricks = listOfTricks;
     }
 
