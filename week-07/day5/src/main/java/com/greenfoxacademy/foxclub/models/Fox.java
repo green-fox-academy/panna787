@@ -14,20 +14,23 @@ public class Fox {
     private String name;
     @OneToMany(fetch = FetchType.EAGER)
     private List<Trick> listOfTricks;
-    private String food = "pizza";
-    private String drink = "lemonade";
+    private String food;
+    private String drink;
     @OneToOne(fetch = FetchType.EAGER)
     private User user;
 
     public Fox(){
         this.name = "Default";
+        this.food = "pizza";
+        this.drink = "lemonade";
         this.listOfTricks = new ArrayList<>();
     }
 
     public Fox(String name){
         this.name = name;
+        this.food = "pizza";
+        this.drink = "lemonade";
         this.listOfTricks = new ArrayList<>();
-
     }
 
     public Fox(String name, String food, String drink){
